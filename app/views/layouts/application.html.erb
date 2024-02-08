@@ -19,7 +19,12 @@
         <a class="p-2 text-dark" href="#">Support</a>
         <a class="p-2 text-dark" href="#">Pricing</a>
       </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
+      <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-primary" %>
+      <% else %>
+          <%= link_to "サインアップ", new_user_registration_path, class:"btn btn-outline-primary" %>
+          <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-primary" %>
+      <% end %>
     </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
