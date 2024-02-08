@@ -17,7 +17,9 @@
         <a class="p-2 text-dark" href="#">Features</a>
         <a class="p-2 text-dark" href="#">Enterprise</a>
         <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
+        <% if user_signed_in? %>
+          <%= link_to "マイページ", account_path(current_user), class:"p-2 text-dark" %>
+        <% end %>
       </nav>
       <% if user_signed_in? %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-primary" %>
