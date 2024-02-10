@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :accounts, only: [:show, :edit, :update]
+  resources :accounts, only: [:show]
   devise_for :users
   root to: "homes#top"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
