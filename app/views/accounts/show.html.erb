@@ -1,4 +1,8 @@
-<h1>マイページだお</h1>
-<div><%= @user.id %></div>
-<%= link_to "編集ページ",  edit_user_registration_path(@user) %>
-<div><%= @user.name %></div>
+<% if user_signed_in? && @user == current_user %>
+  <h1>マイページ</h1>
+  <%= link_to "編集ページ",  edit_user_registration_path(@user) %>
+<% else %>
+  <h1>ユーザーページ</h1>
+<% end %>
+
+<h1><%= @user.name %></h1>
