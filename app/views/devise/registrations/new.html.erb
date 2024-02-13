@@ -1,31 +1,16 @@
-<h2>Sign up</h2>
+<div class="form-signin form_signin_custom">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="user_image_container_signup">
+      <img class="user_image_signup" src="https://www.webtech.co.jp/blog/wp-content/uploads/2021/12/snowman01.webp"/>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "最低6文字" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <h1 class="h3 mb-3 font-weight-normal form-title-signup">サインアップ</h1>
+    <%= f.text_field :name, autofocus: true, id:"inputEmail", class:"form-control registrations-input", placeholder:"Name" %>
+    <%= f.email_field :email, autocomplete: "email", id:"inputEmail", class:"form-control registrations-input", placeholder:"Email address" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password 最低6文字", id:"inputPassword", class:"form-control registrations-input" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", id:"inputPassword", class:"form-control registrations-input registrations-input-last", placeholder:"Confirm Password" %>
+    <%= f.submit "Sign up", class:"btn btn-lg btn-primary btn-block" %>
+  <% end %>
+</div>
