@@ -1,8 +1,26 @@
-<% if user_signed_in? && @user == current_user %>
-  <h1>マイページ</h1>
-  <%= link_to "編集ページ",  edit_user_registration_path(@user) %>
-<% else %>
-  <h1>ユーザーページ</h1>
-<% end %>
+<div class="wrapper">
 
-<h1><%= @user.name %></h1>
+  <aside class="sidebar">
+    <div class="widget widget--sticky--first"></div>
+    <div class="widget widget--sticky--second"></div>
+  </aside>
+
+  <main class="main">
+    <div class="main_container">
+      <div class="user_info">
+        <% if user_signed_in? && @user == current_user %>
+          <h1 class="page_user_name"><%= @user.name %>のマイページ</h1>
+          <h3>アドレス：<%= @user.email %></h3>
+          <%= link_to "編集ページへ",  edit_user_registration_path(@user) %><br/>
+        <% else %>
+          <h1 class="page_user_name"><%= @user.name %>のページ</h1>
+        <% end %>
+      </div>
+      <div class="user_image_container">
+        <img class="user_image" src="https://www.webtech.co.jp/blog/wp-content/uploads/2021/12/snowman01.webp"/>
+      </div>
+    </div>
+    <div class="post_container"></div>
+  </main>
+
+</div>

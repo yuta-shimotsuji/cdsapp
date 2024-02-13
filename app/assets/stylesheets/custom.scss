@@ -1,7 +1,11 @@
+// applicationコントローラー、全体のviewに適用
+// 
+// 
+
 .footer-custom {
   padding-top: 3rem;
   padding-bottom: 3rem;
-  margin-top: 250px;
+  margin-top: 100px;
   background-color: #f8f9fa;
 }
 
@@ -21,4 +25,80 @@
 .title_link:hover {
   color: black;
   text-decoration: none;
+}
+
+// accountコントローラー、showアクション
+// 
+// 
+
+.wrapper {
+  width: 94%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  min-height: 600px;
+}
+
+.page_user_name {
+  text-decoration: underline;
+}
+
+.main_container {
+  display: flex;
+  justify-content: space-between;
+  border: dashed 2px #fff;
+  padding: 20px;
+}
+
+.user_image_container {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_image {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+.main {
+  width: calc(100% - 300px);
+  background-color: #F0F0F0;
+  padding: 50px;
+}
+
+.post_container {
+  min-height: 200px;
+  border: dashed 2px #fff;
+  margin-top: 50px;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: #F0F0F0;
+}
+
+.widget {
+  padding: 5px;
+  margin: 10px;
+  background-color: #fff;
+  height: 100px;
+}
+
+.widget + .widget {
+  margin-top: 20px;
+}
+
+.widget--sticky--first {
+  top: 20px;
+  position: sticky;
+}
+
+.widget--sticky--second {
+  top: 140px;
+  position: sticky;
 }
