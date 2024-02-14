@@ -50,10 +50,7 @@
     </div>
     <div class="post_container">
       <h1 class="page_user_name">アカウント削除</h1>
-
-      <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-      <%= link_to "Back", :back %>
+      <%= button_to "アカウントを削除しますか？", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %>
     </div>
   </main>
 
