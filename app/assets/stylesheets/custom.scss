@@ -107,7 +107,7 @@
   position: sticky;
 }
 
-// dvise サインアップページ
+// dvise サインアップページ（一部ログインページも兼）
 // 
 // 
 
@@ -165,4 +165,17 @@
 .user_image_signup {
   width: 200px;
   height: 200px;
+}
+
+// devise　ログインページ
+// 
+// 
+
+.remember_me_custom {
+  margin-top: 10px;
+}
+
+.login_sub_links {
+  text-align: center;
+  padding-top: 10px;
 }
