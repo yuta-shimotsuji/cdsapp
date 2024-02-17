@@ -24,5 +24,6 @@ ja:
         first_name: 名
         family_name: 姓
         name: "名前"
+        image: "アイコン画像"
       admin:
         id: ID

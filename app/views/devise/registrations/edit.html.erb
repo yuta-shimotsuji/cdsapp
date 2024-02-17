@@ -39,6 +39,7 @@
             </div>
 
             <div class="edit_field">
+              <%= f.label :image %>
               <%= f.file_field :image, class:"edit_form" %>
             </div>
           
@@ -49,7 +50,7 @@
         </div>
       </div>
       <div class="user_image_container">
-        <img class="user_image" src="https://www.webtech.co.jp/blog/wp-content/uploads/2021/12/snowman01.webp"/>
+        <%= image_tag @user.image, class:"user_image" %>
       </div>
     </div>
     <div class="post_container">
