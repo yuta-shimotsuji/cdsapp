@@ -1,16 +1,19 @@
-<h2>Forgot your password?</h2>
+<div class="form-signin form_signin_custom">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="user_image_container_signup">
+      <%= image_tag 'icon.png', class:"user_image" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <h1 class="h3 mb-3 font-weight-normal form-title-signup">パスワード再設定</h1>
+    <%= f.email_field :email, autocomplete: "email", id:"inputEmail", class:"form-control password-reset-input", placeholder:"Email address" %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+    <%= f.submit "再設定メールを送信", class:"btn btn-lg btn-primary btn-block" %>
 
-<%= render "devise/shared/links" %>
+  <% end %>
+</div>
+
+<div class="login_sub_links">
+  <%= render "devise/shared/links" %>
+</div>
