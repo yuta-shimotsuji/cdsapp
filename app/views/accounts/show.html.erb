@@ -23,4 +23,8 @@
     <div class="post_container"></div>
   </main>
 
+  <% if @user.image.attached? %>
+    <%= image_tag @user.image %>
+  <% end %>
+
 </div>
