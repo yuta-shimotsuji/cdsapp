@@ -1,25 +1,21 @@
-<h2>Change your password</h2>
+<div class="form-signin form_signin_custom">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+    <div class="user_image_container_signup">
+      <%= image_tag 'icon.png', class:"user_image" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+    <h1 class="h3 mb-3 font-weight-normal form-title-signup">新パスワード</h1>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", id:"inputEmail", class:"form-control password-reset-input", placeholder:"" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", id:"inputEmail", class:"form-control password-reset-input", placeholder:"passrord確認用" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <%= f.submit "パスワードを決定する", class:"btn btn-lg btn-warning btn-block" %>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="login_sub_links">
+  <%= render "devise/shared/links" %>
+</div>

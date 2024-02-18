@@ -1,10 +1,206 @@
+// applicationコントローラー、全体のviewに適用
+// 
+// 
+
 .footer-custom {
   padding-top: 3rem;
   padding-bottom: 3rem;
-  margin-top: 250px;
+  margin-top: 100px;
   background-color: #f8f9fa;
 }
 
 .footer-custom p {
   margin-bottom: .25rem;
+}
+
+.title_link {
+  color: black;
+  font-weight: bold;
+}
+
+.title_link::before {
+  color: black;
+}
+
+.title_link:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.btn-header-custom {
+  margin-left: 5px;
+}
+
+// accountコントローラー、showアクション
+// 
+// 
+
+.wrapper {
+  width: 94%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  min-height: 600px;
+}
+
+.page_user_name {
+  text-decoration: underline;
+}
+
+.main_container {
+  display: flex;
+  justify-content: space-between;
+  border: dashed 2px #fff;
+  padding: 20px;
+}
+
+.user_image_container {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user_image {
+  width: 180px;
+  height: 180px;
+}
+
+.main {
+  width: calc(100% - 300px);
+  background-color: #F0F0F0;
+  padding: 50px;
+}
+
+.post_container {
+  min-height: 200px;
+  border: dashed 2px #fff;
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: #F0F0F0;
+}
+
+.widget {
+  padding: 5px;
+  margin: 10px;
+  background-color: #fff;
+  height: 100px;
+}
+
+.widget + .widget {
+  margin-top: 20px;
+}
+
+.widget--sticky--first {
+  top: 20px;
+  position: sticky;
+}
+
+.widget--sticky--second {
+  top: 140px;
+  position: sticky;
+}
+
+// dvise サインアップページ（一部ログインページも兼）
+// 
+// 
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form_signin_custtom {
+  align-items: center;
+}
+
+.registrations-input {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.registrations-input-last {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-title-signup {
+  text-align: center;
+}
+
+.user_image_container_signup {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.user_image_signup {
+  width: 200px;
+  height: 200px;
+}
+
+// devise　ログインページ
+// 
+// 
+
+.remember_me_custom {
+  margin-top: 10px;
+}
+
+.login_sub_links {
+  text-align: center;
+  padding-top: 10px;
+}
+
+// devise　編集ページ（共通レイアウト　accountコントローラー、showと共通レイアウトあり）
+// 
+// 
+
+.edit_field {
+  text-align: right;
+}
+
+.edit_form {
+  width: 300px;
+}
+
+// devise パスワード再設定ページ
+// 
+// 
+
+.password-reset-input {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }

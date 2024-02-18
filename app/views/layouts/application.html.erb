@@ -12,14 +12,20 @@
 
   <body>
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "幹事サポート", root_path, class:"title_link" %></h5>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Features</a>
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
+        <a class="p-2 text-dark" href="#">使い方</a>
+        <% if user_signed_in? %>
+          <%= link_to "マイページ", account_path(current_user), class:"p-2 text-dark" %>
+        <% end %>
       </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
+      <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-primary" %>
+      <% else %>
+          <%= link_to "サインアップ", new_user_registration_path, class:"btn btn-outline-primary" %>
+          <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-primary btn-header-custom" %>
+          <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class:"btn btn-outline-primary btn-header-custom" %>
+      <% end %>
     </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
@@ -27,10 +33,11 @@
     <footer class="text-muted footer-custom">
       <div class="container">
         <p class="float-right">
-          <a href="#">Back to top</a>
+          <%= link_to "トップに戻る", root_path %>
         </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+        <h5>幹事サポート</h5>
+        <%= link_to "プライバシーポリシー", root_path %></br>
+        <%= link_to "利用規約", root_path %>
       </div>
     </footer>
   </body>

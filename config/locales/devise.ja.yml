@@ -9,8 +9,21 @@ ja:
       user:
         signed_up: "アカウント登録が完了しました。"
       signed_up: "アカウント登録が完了しました。"
-  errors:
+      errors:
     messages:
       not_saved:
         one: '1件のエラーが発生したため %{resource} は保存されませんでした。'
         other: '%{count} 件のエラーが発生したため %{resource} は保存されませんでした。'
+  activerecord:
+    models:
+      user: ユーザー
+      admin: 管理者
+    attributes:
+      user:
+        id: ID
+        first_name: 名
+        family_name: 姓
+        name: "名前"
+        image: "アイコン画像"
+      admin:
+        id: ID
