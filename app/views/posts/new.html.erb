@@ -1,14 +1,53 @@
+<div id='map'></div>
+
+<script>
+  let map
+
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.681236, lng:139.767125},
+      zoom: 13,
+    });
+
+    marker = new google.maps.Marker({
+      position:  {lat: 35.681236, lng:139.767125},
+      map: map
+    });
+
+    <% @posts.each do |p| %>
+      <% results = Geocoder.search(p.address) %>
+      <% if results.present? %>
+          <% @latlng = results.first.coordinates %>
+          (function() {
+              let marker = new google.maps.Marker({
+                  position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
+                  map: map
+              });
+          })();
+      <% end %>
+    <% end %>
+
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
+
 <%= form_with model: @post, local: true do |f| %>
 
   <p><%= f.label :title %><br>
-  <%= f.text_field :title %> #titleの入力フォーム生成
+  <%= f.text_field :title %> 
   </p>
   
   <p><%= f.label :body %><br>
-  <%= f.text_area :body %> #bodyの入力フォーム生成
+  <%= f.text_area :body %> 
+  </p>
+
+  <p><%= f.label :address %><br>
+  <%= f.text_area :address %>
   </p>
   
-  <p><%= f.submit %> #送信ボタンを生成
+  <p><%= f.submit %>
   </p>
   
 <% end %>
