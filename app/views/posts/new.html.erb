@@ -22,6 +22,9 @@
       var marker = new google.maps.Marker();
       marker.setPosition(new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()));
       marker.setMap(map);
+      geocoder.geocode({ location: event.latLng }).then((response) =>{ 
+        console.log(response.results[0].formatted_address);
+      })
     }
 
     <% @posts.each do |p| %>
@@ -52,7 +55,7 @@
   </p>
 
   <p><%= f.label :address %><br>
-  <%= f.text_area :address %>
+  <%= f.text_area :address, id:"address_field" %>
   </p>
   
   <p><%= f.submit %>
