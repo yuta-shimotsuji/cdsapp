@@ -24,7 +24,7 @@
       marker.setMap(map);
       geocoder.geocode({ location: event.latLng }).then((response) =>{ 
         document.getElementById('address_field').innerHTML = response.results[0].formatted_address;
-      })
+      });
     }
 
     <% @posts.each do |p| %>
@@ -41,13 +41,31 @@
     <% end %>
 
   }
+
+  function codeAddress(){
+      var address = document.getElementById('address').value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+          document.getElementById('address_field').innerHTML = results[0].formatted_address;
+        } else {
+          alert('スポットが見つかりませんでした');
+        }
+      });
+  }
+
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
 
 <%= form_with model: @post, local: true do |f| %>
 
   <p><%= f.label :title %><br>
-  <%= f.text_field :title %> 
+  <%= f.text_field :title, id:"address"  %>
+  <input type="button" value="検索" onclick="codeAddress()">
   </p>
   
   <p><%= f.label :body %><br>
