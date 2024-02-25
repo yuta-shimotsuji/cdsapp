@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @latLng = Geocoder.search(@post.address).first.coordinates
   end
 
   def create
