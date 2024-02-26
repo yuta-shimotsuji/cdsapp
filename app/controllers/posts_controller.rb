@@ -20,6 +20,8 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @latLng = Geocoder.search(@post.address).first.coordinates
   end
 
   def update
