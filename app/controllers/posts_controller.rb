@@ -8,7 +8,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @latLng = Geocoder.search(@post.address).first.coordinates
+    @latLng_test = Geocoder.search(@post.address)
+    if @latLng_test.present?
+      @latLng = Geocoder.search(@post.address).first.coordinates
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -16,6 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post)
     else
+      @posts = Post.all
       render action: :new
     end
   end
