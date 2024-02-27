@@ -80,3 +80,12 @@
   </p>
   
 <% end %>
+
+<% @posts.each do |p| %>
+  <div class="post">
+    <%= p.id %>
+    <%= p.title %>
+    <%= p.body %>
+    <%= p.address %>
+  </div>
+<% end %>
