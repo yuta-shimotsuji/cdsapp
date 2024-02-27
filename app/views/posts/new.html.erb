@@ -61,24 +61,26 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
 
-<%= form_with model: @post, local: true do |f| %>
+<% if user_signed_in? %>
+  <%= form_with model: @post, local: true do |f| %>
 
-  <p><%= f.label :title %><br>
-  <%= f.text_field :title, id:"address"  %>
-  <input type="button" value="検索" onclick="codeAddress()">
-  </p>
-  
-  <p><%= f.label :body %><br>
-  <%= f.text_area :body %> 
-  </p>
+    <p><%= f.label :title %><br>
+    <%= f.text_field :title, id:"address"  %>
+    <input type="button" value="検索" onclick="codeAddress()">
+    </p>
+    
+    <p><%= f.label :body %><br>
+    <%= f.text_area :body %> 
+    </p>
 
-  <p><%= f.label :address %><br>
-  <%= f.text_area :address, id:"address_field" %>
-  </p>
-  
-  <p><%= f.submit %>
-  </p>
-  
+    <p><%= f.label :address %><br>
+    <%= f.text_area :address, id:"address_field" %>
+    </p>
+    
+    <p><%= f.submit %>
+    </p>
+    
+  <% end %>
 <% end %>
 
 <% @posts.each do |p| %>
