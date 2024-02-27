@@ -4,7 +4,9 @@
 <%= @post.body %>
 <%= @post.address %>
 
+<div><%= link_to "編集", edit_post_path(@post.id) %></div>
 <div><%= link_to "削除", post_path(@post.id), method: :delete %></div>
+<div><%= link_to "新規投稿へ", new_post_path %></div>
 
 <div id='map'></div>
 
