@@ -38,7 +38,7 @@
               <div><%= p.body %></div>
               <div><%= p.address %></div>
             </div>
-            <div class="post_contents_right"><%= p.created_at %></div>
+            <div class="post_contents_right"><%= p.created_at.strftime("%Y年%m月%d日") %></div>
           </div>
         </div>
       <% end %>
