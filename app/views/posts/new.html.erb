@@ -1,4 +1,52 @@
-<div id='map'></div>
+<div class="posts_new_wallpaper">
+
+  <div id='map'></div>
+
+  <div class="post_contents_container">
+    <div class="post_form_container">
+      <% if user_signed_in? %>
+        <%= form_with model: @post, local: true do |f| %>
+
+          <p><%= f.label :title %>※<br>
+          <%= f.text_field :title, id:"address"  %>
+          <input type="button" value="検索" onclick="codeAddress()">
+          </p>
+          
+          <p><%= f.label :body %>※<br>
+          <%= f.text_area :body %> 
+          </p>
+
+          <p><%= f.label :address %>※<br>
+          <%= f.text_area :address, id:"address_field" %>
+          </p>
+          
+          <p><%= f.submit %>
+          </p>
+          
+        <% end %>
+      <% end %>
+    </div>
+    <div class="post_index_container">
+      <h3>投稿一覧</h3>
+      <% @posts.each do |p| %>
+        <div class="post">
+          <%= image_tag 'icon.png', class:"user_image_post_icon" %>
+          <div class="post_contents">
+            <div class="post_contents_left">
+              <div><%= p.id %></div>
+              <div><%= link_to p.title, post_path(p.id) %></div>
+              <div><%= p.body %></div>
+              <div><%= p.address %></div>
+            </div>
+            <div class="post_contents_right"><%= p.created_at %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
 
 <script>
   let map
@@ -60,35 +108,3 @@
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
-
-<% if user_signed_in? %>
-  <%= form_with model: @post, local: true do |f| %>
-
-    <p><%= f.label :title %>※<br>
-    <%= f.text_field :title, id:"address"  %>
-    <input type="button" value="検索" onclick="codeAddress()">
-    </p>
-    
-    <p><%= f.label :body %>※<br>
-    <%= f.text_area :body %> 
-    </p>
-
-    <p><%= f.label :address %>※<br>
-    <%= f.text_area :address, id:"address_field" %>
-    </p>
-    
-    <p><%= f.submit %>
-    </p>
-    
-  <% end %>
-<% end %>
-
-<% @posts.each do |p| %>
-  <div class="post">
-    <%= p.id %>
-    <%= p.title %>
-    <%= p.body %>
-    <%= p.address %>
-    <%= link_to "投稿へ", post_path(p.id) %>
-  </div>
-<% end %>

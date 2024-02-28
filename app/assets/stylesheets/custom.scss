@@ -211,14 +211,51 @@
 
 #map {
   height: 600px;
-  width: 600px;
+  width: 100%;
 }
 
 // postsコントローラー new
 // 
 // 
 
+.posts_new_wallpaper {
+  width: 100%;
+  padding: 10px 30px;
+}
+
 .post {
+  margin: 10px 0px;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 10px;
+  display: flex;
+}
+
+.user_image_post_icon {
+  width: 65px;
+  height: 65px;
+}
+
+.post_contents {
+  font-size: 10px;
+  display: flex;
   justify-content: space-between;
-  text-decoration: underline;
+  width: 100%;
+}
+
+.post_contents_container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.post_form_container {
+  width: 28%;
+  border: dashed 2px #f0f0f0;
+  padding: 30px;
+}
+
+.post_index_container {
+  width: 68%;
+  border: dashed 2px #f0f0f0;
+  padding: 30px;
 }
