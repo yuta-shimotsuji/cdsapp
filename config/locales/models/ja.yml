@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        title: エリア
+        body: メモ
+        address: 住所
