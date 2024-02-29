@@ -4,8 +4,8 @@
 
   <div class="post_contents_container">
     <div class="post_form_container">
-      <h3>新規投稿</h3>
       <% if user_signed_in? %>
+        <h3>新規投稿</h3>
         <%= form_with model: @post, local: true do |f| %>
 
           <%= render 'layouts/error_messages', model: f.object %>
@@ -27,6 +27,10 @@
           </p>
           
         <% end %>
+      <% else %>
+          <h4>幹事サポートへようこそ！</h4>
+          <h6>10名以上で遊べるスポットを共有し合いましょう!</h6>
+          <%= link_to "新規登録", "new_user_registration_path", class:"btn btn-outline-primary" %>
       <% end %>
     </div>
     <div class="post_index_container">
