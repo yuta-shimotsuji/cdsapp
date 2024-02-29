@@ -22,7 +22,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       @posts = Post.all
-      render action: :new
+      render action: :new, status: :unprocessable_entity
     end
   end
 

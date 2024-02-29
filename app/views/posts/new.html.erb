@@ -8,6 +8,8 @@
       <% if user_signed_in? %>
         <%= form_with model: @post, local: true do |f| %>
 
+          <%= render 'layouts/error_messages', model: f.object %>
+
           <p>エリア<br>
           <%= f.text_field :title, id:"address"  %>
           <input type="button" value="検索" onclick="codeAddress()">
