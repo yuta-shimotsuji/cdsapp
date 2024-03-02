@@ -1,14 +1,14 @@
 <div class="post_show_wallpaper">
 
-<div><%= @post.title %></div>
-<div><%= @post.address %></div>
-<div id='map'></div>
+  <div><%= @post.title %></div>
+  <div><%= @post.address %></div>
+  <div id='map'></div>
 
-<ul class="post_action">
-  <li><%= link_to "編集", edit_post_path(@post.id), class:"btn btn-outline-primary" %></li>
-  <li><%= link_to "削除", post_path(@post.id), method: :delete, class:"btn btn-outline-primary" %></li>
-  <li><%= link_to "戻る", new_post_path, class:"btn btn-outline-secondary" %></li>
-</ul>
+  <ul class="post_action">
+    <li><%= link_to "編集", edit_post_path(@post.id), class:"btn btn-outline-primary" %></li>
+    <li><%= link_to "削除", post_path(@post.id), method: :delete, class:"btn btn-outline-primary" %></li>
+    <li><%= link_to "戻る", new_post_path, class:"btn btn-outline-secondary" %></li>
+  </ul>
 
 </div>
 

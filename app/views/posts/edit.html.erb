@@ -1,4 +1,33 @@
-<div id='map'></div>
+<div class="post_show_wallpaper">
+
+  <div id='map'></div>
+
+  <div class="post_edit_form_container">
+      <h3>投稿編集</h3>
+      <%= form_with model: @post, local: true do |f| %>
+
+        <%= render 'layouts/error_messages', model: f.object %>
+
+        <p>エリア<br>
+        <%= f.text_field :title, id:"address"  %>
+        <input type="button" value="検索" onclick="codeAddress()">
+        </p>
+        
+        <p>メモ<br>
+        <%= f.text_area :body %> 
+        </p>
+
+        <p>住所<br>
+        <%= f.text_area :address, id:"address_field" %>
+        </p>
+        
+        <p><%= f.submit %>
+        </p>
+        
+      <% end %>
+  </div>
+
+</div>
 
 <script>
   let map
@@ -47,23 +76,3 @@
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
-
-<%= form_with model: @post, local: true do |f| %>
-
-  <p><%= f.label :title %><br>
-  <%= f.text_field :title, id:"address"  %>
-  <input type="button" value="検索" onclick="codeAddress()">
-  </p>
-  
-  <p><%= f.label :body %><br>
-  <%= f.text_area :body %> 
-  </p>
-
-  <p><%= f.label :address %><br>
-  <%= f.text_area :address, id:"address_field" %>
-  </p>
-  
-  <p><%= f.submit %>
-  </p>
-  
-<% end %>
