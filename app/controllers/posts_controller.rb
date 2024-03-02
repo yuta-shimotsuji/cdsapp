@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     if @latLng_test.present?
       @latLng = Geocoder.search(@post.address).first.coordinates
     else
-      redirect_to root_path
+      redirect_to root_path, notice: '住所が不正のため表示できませんでした'
     end
   end
 

@@ -31,6 +31,21 @@
   margin-left: 5px;
 }
 
+.flash-notifications {
+  font-weight: bold;
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: #ADD8E6;
+  }
+
+  .alert {
+    background-color: #FF4500;
+  }
+
+}
+
 // accountコントローラー、showアクション
 // 
 // 
