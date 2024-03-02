@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to post_path(@post), notice: '投稿しました'
     else
       @posts = Post.all
       render action: :new, status: :unprocessable_entity
