@@ -41,7 +41,7 @@
           <div class="post_contents">
             <div class="post_contents_left">
               <div><%= p.id %></div>
-              <div><%= link_to p.title, post_path(p.id) %></div>
+              <div><%= link_to p.title, post_path(p.id), data: { turbo: false } %></div>
               <div><%= p.body %></div>
               <div><%= p.address %></div>
             </div>
