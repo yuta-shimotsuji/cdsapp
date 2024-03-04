@@ -31,6 +31,21 @@
   margin-left: 5px;
 }
 
+.flash-notifications {
+  font-weight: bold;
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: #ADD8E6;
+  }
+
+  .alert {
+    background-color: #FF4500;
+  }
+
+}
+
 // accountコントローラー、showアクション
 // 
 // 
@@ -203,4 +218,87 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+// googlemap　
+// 
+// 
+
+#map {
+  height: 600px;
+  width: 100%;
+}
+
+// postsコントローラー new,edit
+// 
+// 
+
+.posts_new_wallpaper {
+  width: 100%;
+  padding: 10px 30px;
+}
+
+.post {
+  margin: 10px 0px;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 10px;
+  display: flex;
+}
+
+.user_image_post_icon {
+  width: 65px;
+  height: 65px;
+}
+
+.post_contents {
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post_contents_container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.post_form_container {
+  width: 28%;
+  border: dashed 2px #f0f0f0;
+  padding: 30px;
+}
+
+.post_index_container {
+  width: 68%;
+  border: dashed 2px #f0f0f0;
+  padding: 30px;
+}
+
+// postコントローラー、show
+// 
+// 
+
+.post_show_wallpaper {
+  width: 100%;
+  padding: 0px 400px;
+  text-align: center;
+}
+
+.post_action {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin-top: 10px;
+}
+
+// postコントローラー、edit
+// 
+// 
+
+.post_edit_form_container {
+  width: 100%;
+  border: dashed 2px #f0f0f0;
+  padding: 30px;
+  margin-top: 10px;
 }

@@ -79,3 +79,7 @@ gem 'devise'
 gem 'rails-i18n'
 
 gem 'dotenv-rails'
+
+gem 'geocoder'
+
+gem 'pry-rails'

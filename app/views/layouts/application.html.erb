@@ -27,8 +27,11 @@
           <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class:"btn btn-outline-primary btn-header-custom" %>
       <% end %>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="flash-notifications">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: key) %>
+      <% end %>
+    </div>
     <%= yield %>
     <footer class="text-muted footer-custom">
       <div class="container">

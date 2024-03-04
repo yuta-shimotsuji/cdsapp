@@ -1,0 +1,117 @@
+<div class="posts_new_wallpaper">
+
+  <div id='map'></div>
+
+  <div class="post_contents_container">
+    <div class="post_form_container">
+      <% if user_signed_in? %>
+        <h3>新規投稿</h3>
+        <%= form_with model: @post, local: true do |f| %>
+
+          <%= render 'layouts/error_messages', model: f.object %>
+
+          <p>エリア<br>
+          <%= f.text_field :title, id:"address"  %>
+          <input type="button" value="検索" onclick="codeAddress()">
+          </p>
+          
+          <p>メモ<br>
+          <%= f.text_area :body %> 
+          </p>
+
+          <p>住所<br>
+          <%= f.text_area :address, id:"address_field" %>
+          </p>
+          
+          <p><%= f.submit %>
+          </p>
+          
+        <% end %>
+      <% else %>
+          <h4>幹事サポートへようこそ！</h4>
+          <h6>10名以上で遊べるスポットを共有し合いましょう!</h6>
+          <%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-primary" %>
+      <% end %>
+    </div>
+    <div class="post_index_container">
+      <h3>投稿一覧</h3>
+      <% @posts.each do |p| %>
+        <div class="post">
+          <%= image_tag 'icon.png', class:"user_image_post_icon" %>
+          <div class="post_contents">
+            <div class="post_contents_left">
+              <div><%= p.id %></div>
+              <div><%= link_to p.title, post_path(p.id), data: { turbo: false } %></div>
+              <div><%= p.body %></div>
+              <div><%= p.address %></div>
+            </div>
+            <div class="post_contents_right"><%= p.created_at.strftime("%Y年%m月%d日") %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  let map
+
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 35.681236, lng:139.767125},
+      zoom: 13,
+    });
+
+    marker = new google.maps.Marker({
+      position:  {lat: 35.681236, lng:139.767125},
+      map: map
+    });
+
+    google.maps.event.addListener(map, 'click', mylistener);
+
+    function mylistener(event){
+      var marker = new google.maps.Marker();
+      marker.setPosition(new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()));
+      marker.setMap(map);
+      geocoder.geocode({ location: event.latLng }).then((response) =>{ 
+        document.getElementById('address_field').innerHTML = response.results[0].formatted_address;
+      });
+    }
+
+    <% @posts.each do |p| %>
+      <% results = Geocoder.search(p.address) %>
+      <% if results.present? %>
+        <% @latlng = results.first.coordinates %>
+        (function() {
+            let marker = new google.maps.Marker({
+                position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
+                map: map
+            });
+        })();
+      <% end %>
+    <% end %>
+
+  }
+
+  function codeAddress(){
+      var address = document.getElementById('address').value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == 'OK') {
+          map.setCenter(results[0].geometry.location);
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+          document.getElementById('address_field').innerHTML = results[0].formatted_address;
+        } else {
+          alert('スポットが見つかりませんでした');
+        }
+      });
+  }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap" async defer></script>
