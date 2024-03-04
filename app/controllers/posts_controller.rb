@@ -22,7 +22,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post), notice: '投稿しました'
     else
       @posts = Post.all
-      render action: :new, status: :unprocessable_entity
+      render action: :new, status: :unprocessable_entity, notice: '投稿に成功しました'
     end
   end
 
@@ -34,13 +34,13 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to post_path(@post)
+    redirect_to post_path(@post), notice: '投稿を編集しました'
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to new_post_path
+    redirect_to new_post_path, notice: '投稿を削除しました'
   end
 
   def post_params
