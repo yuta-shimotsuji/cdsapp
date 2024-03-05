@@ -6,7 +6,7 @@
     <div class="post_form_container">
       <% if user_signed_in? %>
         <h3>新規投稿</h3>
-        <%= form_with model: @post, local: true do |f| %>
+        <%= form_with model: @post, local: true, data: { turbo: false } do |f| %>
 
           <%= render 'layouts/error_messages', model: f.object %>
 
