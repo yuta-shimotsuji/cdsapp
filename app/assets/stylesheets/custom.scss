@@ -116,11 +116,19 @@
 .widget--sticky--first {
   top: 20px;
   position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 .widget--sticky--second {
   top: 140px;
   position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 // dvise サインアップページ（一部ログインページも兼）
@@ -230,8 +238,8 @@
 }
 
 // postsコントローラー new,edit
-// 
-// 
+// userコントローラー　edit
+// accountコントローラー show
 
 .posts_new_wallpaper {
   width: 100%;
