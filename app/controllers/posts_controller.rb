@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.all.includes(:user)
   end
 
   def show

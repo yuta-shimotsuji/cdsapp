@@ -40,7 +40,7 @@
           <%= image_tag 'icon.png', class:"user_image_post_icon" %>
           <div class="post_contents">
             <div class="post_contents_left">
-              <div><%= p.id %></div>
+              <div><%= p.user.name %></div>
               <div><%= link_to p.title, post_path(p.id), data: { turbo: false } %></div>
               <div><%= p.body %></div>
               <div><%= p.address %></div>
