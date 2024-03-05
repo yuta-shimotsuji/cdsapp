@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
     @latLng_test = Geocoder.search(@post.address)
     if @latLng_test.present?
       @latLng = Geocoder.search(@post.address).first.coordinates
