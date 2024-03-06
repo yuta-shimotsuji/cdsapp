@@ -8,7 +8,7 @@
   <ul class="post_action">
     <% if @user.id == current_user.id %>
       <li><%= link_to "編集", edit_post_path(@post.id), class:"btn btn-outline-primary", data: { turbo: false } %></li>
-      <li><%= link_to "削除", post_path(@post.id), class:"btn btn-outline-primary", method: :delete %></li>
+      <li><%= link_to "削除", post_path(@post.id), class:"btn btn-outline-primary", data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></li>
     <% end %>
     <li><%= link_to "戻る", new_post_path, class:"btn btn-outline-secondary", data: { turbo: false } %></li>
   </ul>

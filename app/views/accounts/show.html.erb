@@ -39,7 +39,7 @@
               <div class="post_contents_right">
                 <div><%= p.created_at.strftime("%Y年%m月%d日") %></div>
                 <% if @user.id == current_user.id %>
-                  <div><%= link_to "削除する", post_path(p.id), method: :delete %></div>
+                  <div><%= link_to "削除する", post_path(p.id), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
                 <% end %>
               </div>
             </div>
