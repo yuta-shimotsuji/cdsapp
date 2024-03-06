@@ -83,3 +83,5 @@ gem 'dotenv-rails'
 gem 'geocoder'
 
 gem 'pry-rails'
+
+gem 'kaminari'

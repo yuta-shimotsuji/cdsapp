@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @posts = Post.all.includes(:user)
+    @posts = Post.all.includes(:user).page(params[:page]).per(10)
   end
 
   def show
