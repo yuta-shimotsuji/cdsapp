@@ -75,6 +75,10 @@ ja:
         family_name: 姓
         name: "名前"
         image: "アイコン画像"
+        password: "パスワード"
+        email: "メールアドレス"
+        password_confirmation: "パスワード確認"
+        current_password: "現在のパスワード"
       admin:
         id: ID
 
