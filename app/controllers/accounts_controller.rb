@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
-    @posts = Post.where(user_id: params[:id]).includes(:user)
+    @posts = Post.where(user_id: params[:id]).includes(:user).page(params[:page]).per(10)
   end
 
   def mypage
