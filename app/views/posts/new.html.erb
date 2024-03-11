@@ -50,11 +50,11 @@
               <div><%= p.address %></div>
               <% if p.favorited?(current_user) %>
                 <%= link_to post_favorites_path(p.id), method: :delete do %>
-                  <span style="color:red;">❤︎</span>
+                  <span style="color:red;">❤︎</span><span class="favorite_count"><%= p.favorite_count(p) %></span>
                 <% end %>
               <% else %>
                 <%= link_to post_favorites_path(p.id), method: :post do %>
-                  <span>❤︎</span>
+                  <span>❤︎</span><span class="favorite_count"><%= p.favorite_count(p) %></span>
               <% end %>
             <% end %>
             </div>
