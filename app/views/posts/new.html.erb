@@ -48,6 +48,15 @@
               <div><%= link_to p.title, post_path(p.id), data: { turbo: false } %></div>
               <div><%= p.body %></div>
               <div><%= p.address %></div>
+              <% if p.favorited?(current_user) %>
+                <%= link_to post_favorites_path(p.id), method: :delete do %>
+                  <span style="color:red;">❤︎</span>
+                <% end %>
+              <% else %>
+                <%= link_to post_favorites_path(p.id), method: :post do %>
+                  <span>❤︎</span>
+              <% end %>
+            <% end %>
             </div>
             <div class="post_contents_right"><%= p.created_at.strftime("%Y年%m月%d日") %></div>
           </div>
