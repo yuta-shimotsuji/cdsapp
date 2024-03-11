@@ -6,7 +6,9 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   
   def favorited?(user)
-    favorites.where(user_id: user.id).exists?
+    if user.present?
+      favorites.where(user_id: user.id).exists?
+    end
   end
 
   def favorite_count(post)
