@@ -46,6 +46,16 @@ class PostsController < ApplicationController
     redirect_to new_post_path, notice: '投稿を削除しました'
   end
 
+  def search
+    @post = Post.new
+    if params[:keyword].present?
+      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10)
+      @keyword = params[:keyword]
+    else
+      @posts = Post.all.includes(:user).page(params[:page]).per(10)
+    end
+  end
+
   def post_params
     params.require(:post).permit(:title, :body, :address)
   end
