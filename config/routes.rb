@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :accounts, only: [:show]
+  get '/accounts/favorite_show/:id' => 'accounts#favorite_show'
   get '/mypage' => 'accounts#mypage'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   root to: "posts#new"
