@@ -1,13 +1,15 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.all.includes(:user).page(params[:page]).per(10)
   end
 
   def show
     @post = Post.find(params[:id])
+    @user = User.find(@post.user_id)
     @latLng_test = Geocoder.search(@post.address)
     if @latLng_test.present?
       @latLng = Geocoder.search(@post.address).first.coordinates
@@ -18,6 +20,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user_id = current_user.id
     if @post.save
       redirect_to post_path(@post), notice: '投稿しました'
     else
@@ -43,7 +46,25 @@ class PostsController < ApplicationController
     redirect_to new_post_path, notice: '投稿を削除しました'
   end
 
+  def search
+    @post = Post.new
+    if params[:keyword].present?
+      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10)
+      @keyword = params[:keyword]
+    else
+      @posts = Post.all.includes(:user).page(params[:page]).per(10)
+    end
+  end
+
   def post_params
     params.require(:post).permit(:title, :body, :address)
+  end
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+    if @post.user_id != current_user.id
+      flash[:alert] = "権限がありません"
+      redirect_to new_post_path
+    end
   end
 end

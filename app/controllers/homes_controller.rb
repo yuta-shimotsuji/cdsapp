@@ -1,5 +1,12 @@
 class HomesController < ApplicationController
-  def top
+
+  def privacy_policy
+  end
+
+  def terms_of_service
+  end
+
+  def how_to_use_the_app
   end
 
   def guest_sign_in

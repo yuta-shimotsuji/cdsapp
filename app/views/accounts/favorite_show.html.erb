@@ -1,8 +1,8 @@
 <div class="wrapper">
 
   <aside class="sidebar">
-    <div class="widget widget--sticky--first"><p>投稿一覧<p></div>
-    <div class="widget widget--sticky--second"><%= link_to "いいね一覧" , "/accounts/favorite_show/#{@user.id}" %></div>
+    <div class="widget widget--sticky--first"><%= link_to "投稿一覧" , account_path(@user.id) %></div>
+    <div class="widget widget--sticky--second"><p>いいね一覧<p></div>
   </aside>
 
   <main class="main">
@@ -25,27 +25,27 @@
       </div>
     </div>
     <div class="post_container">
-      <h3>投稿一覧</h3>
+      <h3>いいね一覧</h3>
       <% @posts.each do |p| %>
           <div class="post">
             <div class="post_contents">
               <div class="post_contents_left">
                 <div><%= link_to p.user.name, account_path(p.user.id) %></div>
-                <div><%= link_to p.title, post_path(p.id), data: { turbo: false } %></div>
-                <div><%= p.body %></div>
-                <div><%= p.address %></div>
-                <% if p.favorited?(current_user) %>
-                  <%= link_to post_favorites_path(p.id), method: :delete do %>
-                    <span style="color:red;">❤︎</span><span class="favorite_count"><%= p.favorite_count(p) %></span>
+                <div><%= link_to p.post.title, post_path(p.post.id), data: { turbo: false } %></div>
+                <div><%= p.post.body %></div>
+                <div><%= p.post.address %></div>
+                <% if p.post.favorited?(current_user) %>
+                  <%= link_to post_favorites_path(p.post.id), method: :delete do %>
+                    <span style="color:red;">❤︎</span><span class="favorite_count"><%= p.post.favorite_count(p.post) %></span>
                   <% end %>
                 <% else %>
-                  <%= link_to post_favorites_path(p.id), method: :post do %>
-                    <span>❤︎</span><span class="favorite_count"><%= p.favorite_count(p) %></span>
+                  <%= link_to post_favorites_path(p.post.id), method: :post do %>
+                    <span>❤︎</span><span class="favorite_count"><%= p.post.favorite_count(p) %></span>
                   <% end %>
                 <% end %>
               </div>
               <div class="post_contents_right">
-                <div><%= p.created_at.strftime("%Y年%m月%d日") %></div>
+                <div><%= p.post.created_at.strftime("%Y年%m月%d日") %></div>
                 <% if @user.id == current_user.id %>
                   <div><%= link_to "削除する", post_path(p.id), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
                 <% end %>

@@ -116,11 +116,19 @@
 .widget--sticky--first {
   top: 20px;
   position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 .widget--sticky--second {
   top: 140px;
   position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
 }
 
 // dvise サインアップページ（一部ログインページも兼）
@@ -206,6 +214,7 @@
 
 .edit_form {
   width: 300px;
+  margin: 4px 0px;
 }
 
 // devise パスワード再設定ページ
@@ -230,8 +239,8 @@
 }
 
 // postsコントローラー new,edit
-// 
-// 
+// userコントローラー　edit
+// accountコントローラー show
 
 .posts_new_wallpaper {
   width: 100%;
@@ -248,6 +257,7 @@
 .user_image_post_icon {
   width: 65px;
   height: 65px;
+  margin-right: 10px;
 }
 
 .post_contents {
@@ -273,6 +283,10 @@
   width: 68%;
   border: dashed 2px #f0f0f0;
   padding: 30px;
+}
+
+.favorite_count {
+  margin-left: 2px;
 }
 
 // postコントローラー、show
@@ -301,4 +315,20 @@
   border: dashed 2px #f0f0f0;
   padding: 30px;
   margin-top: 10px;
+}
+
+// プライバシーポリシー、利用規約、アプリの使い方
+// 
+// 
+
+.privacy_plicy_wallpaper {
+  padding: 20px;
+}
+
+.terms_of_service_wallpaper {
+  padding: 20px;
+}
+
+.jumbotron_custom {
+  height: 500px;
 }

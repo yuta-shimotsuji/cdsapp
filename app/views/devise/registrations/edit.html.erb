@@ -1,8 +1,8 @@
 <div class="wrapper">
 
   <aside class="sidebar">
-    <div class="widget widget--sticky--first"></div>
-    <div class="widget widget--sticky--second"></div>
+    <div class="widget widget--sticky--first"><%= link_to "投稿一覧" , account_path(current_user) %></div>
+    <div class="widget widget--sticky--second"><%= link_to "いいね一覧" , "/accounts/favorite_show/#{current_user.id}" %></div>
   </aside>
 
   <main class="main">
@@ -38,9 +38,9 @@
               <%= f.password_field :current_password, autocomplete: "current-password", class:"edit_form" %>
             </div>
 
-            <div class="edit_field">
-              <%= f.label :image %>
-              <%= f.file_field :image, class:"edit_form" %>
+            <div>
+                <%= f.label :image %>
+                <%= f.file_field :image, class:"edit_form" %>
             </div>
           
             <div class="actions">
