@@ -170,6 +170,7 @@ GEM
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.5.6)
     popper_js (1.16.1)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -292,13 +293,14 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   kaminari
+  pg
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.8)
   rails-i18n
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
+  sqlite3
   stimulus-rails
   turbo-rails
   tzinfo-data
