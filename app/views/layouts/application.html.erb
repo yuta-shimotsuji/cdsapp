@@ -17,7 +17,7 @@
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
       <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "幹事サポート", root_path, class:"title_link" %></h5>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">使い方</a>
+        <%= link_to "使い方", homes_how_to_use_the_app_path, class:"text-dark" %>
         <% if user_signed_in? %>
           <%= link_to "マイページ", account_path(current_user), class:"p-2 text-dark" %>
         <% end %>
@@ -42,8 +42,8 @@
           <%= link_to "トップに戻る", root_path %>
         </p>
         <h5>幹事サポート</h5>
-        <%= link_to "プライバシーポリシー", root_path %></br>
-        <%= link_to "利用規約", root_path %>
+        <%= link_to "プライバシーポリシー", homes_privacy_policy_path %></br>
+        <%= link_to "利用規約", homes_terms_of_service_path %>
       </div>
     </footer>
   </body>
