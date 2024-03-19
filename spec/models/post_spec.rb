@@ -21,7 +21,22 @@ RSpec.describe Post, type: :model do
 
   describe '投稿のバリデーションに関するテスト' do  
 
-    it '空のデータがあれば投稿できない状態にできていること' do
+    it 'titleカラムが空だと投稿できない状態にできていること' do
+      @user = create(:user)
+      @post_title_check = build(:post, title: nil, user: @user)
+      expect(@post_title_check).to be_invalid
+    end
+
+    it 'bodyが空だと投稿できない状態にできていること' do
+      @user = create(:user)
+      @post_body_check = build(:post, body: nil, user: @user)
+      expect(@post_body_check).to be_invalid
+    end
+
+    it 'addressが空だと投稿できない状態にできていること' do
+      @user = create(:user)
+      @post_address_check = build(:post, address: nil, user: @user)
+      expect(@post_address_check).to be_invalid
     end
 
     it 'bodyの文字制限が140以下であること' do
