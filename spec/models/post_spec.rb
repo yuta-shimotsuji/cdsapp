@@ -40,9 +40,14 @@ RSpec.describe Post, type: :model do
     end
 
     it 'bodyの文字制限が140以下であること' do
+      @user = create(:user)
+      @post_title_length_check = build(:post, body: 'a' * 141, user: @user)
+      expect(@post_title_length_check).to be_invalid
     end
 
-    it 'ユーザーidが含まれること' do
+    it 'ユーザーが含まれる必要があること' do
+      @post_user_id_check = build(:post)
+      expect(@post_user_id_check).to be_invalid
     end
   end
 
