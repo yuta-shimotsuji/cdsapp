@@ -61,6 +61,7 @@ RSpec.describe Post, type: :model do
     end
 
     it 'favorite_countメソッド(いいねの数を数えるメソッド)' do
+      expect(post_favorited?.favorite_count(post_favorited?)).to eq(1)
     end
   end
 end
