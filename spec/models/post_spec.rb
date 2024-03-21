@@ -7,6 +7,9 @@ RSpec.describe Post, type: :model do
   let(:user_favorite) { create(:user) }
   let(:post_favorite) { create(:post, user: user_favorite) }
   let(:favorite) { create(:favorite, user_id: user_favorite.id, post_id: post_favorite.id) }
+  let(:user_favorited?) { create(:user) }
+  let(:post_favorited?) { create(:post, user: user_favorited? ) }
+  let!(:favorite_favorited?) { create(:favorite, user_id: user_favorited?.id, post_id: post_favorited?.id) }
 
   describe '投稿の関連付けに関するテスト' do  
 
@@ -53,10 +56,11 @@ RSpec.describe Post, type: :model do
 
   describe '作成したメソッドに関するテスト' do  
 
-    it 'favorited?メソッド' do
+    it 'favorited?メソッド(いいねの有無を確認をするメソッド)' do
+      expect(post_favorited?.favorited?(user_favorited?)).to eq(true)
     end
 
-    it 'favorite_countメソッド' do
+    it 'favorite_countメソッド(いいねの数を数えるメソッド)' do
     end
   end
 end
