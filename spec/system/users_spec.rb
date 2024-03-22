@@ -63,10 +63,27 @@ RSpec.describe "Users", type: :system do
         end
       end
       context 'メールアドレスが未入力' do
-        it 'ユーザーの編集が失敗する'
+        it 'ユーザーの編集が失敗する' do
+          fill_in 'user[email]', with: nil
+          fill_in 'user[current_password]', with: 'password'
+          click_button 'Update'
+          expect(page).to have_content 'メールアドレスが入力されていません'
+        end
+      end
+      context '現在のパスワードが未入力' do
+        it 'ユーザーの編集が失敗する' do
+          fill_in 'user[email]', with: 'edit@example.com'
+          fill_in 'user[current_password]', with: nil
+          click_button 'Update'
+          expect(page).to have_content '現在のパスワードが入力されていません'
+        end
       end
       context '他ユーザーの編集ページにアクセス' do
-        it '編集ページへのアクセスが失敗する'
+        it '編集ページへのアクセスが失敗する(自分のページがレンダリングされる)' do
+          user2 = create(:user)
+          visit edit_user_registration_path(user2)
+          expect(page).to have_field 'user[email]', with: 'email@example.com'
+        end
       end
     end
  
