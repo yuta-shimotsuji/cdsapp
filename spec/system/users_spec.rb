@@ -48,6 +48,8 @@ RSpec.describe "Users", type: :system do
     before do
       visit new_user_session_path
       @user = create(:user, email: 'email@example.com', password: 'password', password_confirmation: 'password')
+      @post = create(:post, user: @user)
+      @Favorite = create(:favorite, user_id: @user.id, post_id: @post.id)
       fill_in 'user[email]', with: 'email@example.com'
       fill_in 'user[password]', with: 'password'
       click_button 'Log in'
@@ -92,10 +94,15 @@ RSpec.describe "Users", type: :system do
  
     describe 'マイページ' do
       context '投稿一覧ページにアクセス' do
-        it '自分の投稿が表示される'
+        it '自分の投稿が表示される' do
+          expect(page).to have_content '東京都目黒区祐天寺２丁目１３'
+        end
       end
       context 'いいね一覧ページにアクセス' do
-        it 'いいねした投稿が表示される'
+        it 'いいねした投稿が表示される' do
+          visit favorite_show_account_path(@user)
+          expect(page).to have_content '東京都目黒区祐天寺２丁目１３'
+        end
       end
     end
   end
