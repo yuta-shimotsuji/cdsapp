@@ -45,9 +45,22 @@ RSpec.describe "Users", type: :system do
   end
  
   describe 'ログイン後' do
+    before do
+      visit new_user_session_path
+      user = create(:user, email: 'email@example.com', password: 'password', password_confirmation: 'password')
+      fill_in 'user[email]', with: 'email@example.com'
+      fill_in 'user[password]', with: 'password'
+      click_button 'Log in'
+      visit edit_user_registration_path(user)
+    end
     describe 'ユーザー編集' do
       context 'フォームの入力値が正常' do
-        it 'ユーザーの編集が成功する'
+        it 'ユーザーの編集が成功する' do
+          fill_in 'user[email]', with: 'edit@example.com'
+          fill_in 'user[current_password]', with: 'password'
+          click_button 'Update'
+          expect(page).to have_content 'アカウント情報を変更しました'
+        end
       end
       context 'メールアドレスが未入力' do
         it 'ユーザーの編集が失敗する'
