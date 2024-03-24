@@ -54,7 +54,14 @@ RSpec.describe "Posts", type: :system do
 
   describe '投稿編集について' do
     context 'フォームの入力値が正常' do
-      it '投稿編集が成功する' 
+      it '投稿編集が成功する' do
+        visit edit_post_path(@user)
+        fill_in 'post[title]', with: '広島駅'
+        fill_in 'post[body]', with: '修学旅行でいつもいくところ'
+        fill_in 'post[address]', with: '広島県広島市南区松原町２番３７号'
+        click_button '更新する'
+        expect(page).to have_content '投稿を編集しました'
+      end
     end
     context 'エリアが未記入' do
       it '投稿編集が失敗する' 
