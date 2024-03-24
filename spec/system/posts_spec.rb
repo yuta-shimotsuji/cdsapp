@@ -64,13 +64,34 @@ RSpec.describe "Posts", type: :system do
       end
     end
     context 'エリアが未記入' do
-      it '投稿編集が失敗する' 
+      it '投稿編集が失敗する' do
+        visit edit_post_path(@user)
+        fill_in 'post[title]', with: nil
+        fill_in 'post[body]', with: '修学旅行でいつもいくところ'
+        fill_in 'post[address]', with: '広島県広島市南区松原町２番３７号'
+        click_button '更新する'
+        expect(page).to have_content '編集に失敗しました'
+      end
     end
     context 'メモが未記入' do
-      it '投稿編集が失敗する' 
+      it '投稿編集が失敗する' do
+        visit edit_post_path(@user)
+        fill_in 'post[title]', with: '広島駅'
+        fill_in 'post[body]', with: nil
+        fill_in 'post[address]', with: '広島県広島市南区松原町２番３７号'
+        click_button '更新する'
+        expect(page).to have_content '編集に失敗しました'
+      end
     end
     context '住所が未記入' do
-      it '投稿編集が失敗する' 
+      it '投稿編集が失敗する' do
+        visit edit_post_path(@user)
+        fill_in 'post[title]', with: '広島駅'
+        fill_in 'post[body]', with: '修学旅行でいつもいくところ'
+        fill_in 'post[address]', with: nil
+        click_button '更新する'
+        expect(page).to have_content '編集に失敗しました'
+      end
     end
     context '投稿削除ボタンをクリック' do
       it '投稿削除に成功する' 
