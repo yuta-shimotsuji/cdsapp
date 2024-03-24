@@ -24,8 +24,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to post_path(@post), notice: '投稿しました'
     else
-      @posts = Post.all
-      render action: :new, status: :unprocessable_entity, notice: '投稿に成功しました'
+      @posts = Post.all.includes(:user).page(params[:page]).per(10)
+      render action: :new, status: :unprocessable_entity, notice: '投稿に失敗しました'
     end
   end
 
