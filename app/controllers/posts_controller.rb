@@ -25,7 +25,8 @@ class PostsController < ApplicationController
       redirect_to post_path(@post), notice: '投稿しました'
     else
       @posts = Post.all.includes(:user).page(params[:page]).per(10)
-      render action: :new, status: :unprocessable_entity, notice: '投稿に失敗しました'
+      flash[:notice] = '投稿に失敗しました'
+      render action: :new, status: :unprocessable_entity
     end
   end
 
@@ -36,8 +37,14 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post), notice: '投稿を編集しました'
+    if @post.update(post_params)
+      redirect_to post_path(@post), notice: '投稿を編集しました'
+    else
+      @post = Post.find(params[:id])
+      @latLng = Geocoder.search(@post.address).first.coordinates
+      flash[:notice] = '編集に失敗しました'
+      render action: :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
