@@ -113,7 +113,13 @@ RSpec.describe "Posts", type: :system do
       end
     end
     context '投稿されていないワードで検索をかける' do
-      it '投稿データがゼロで、エラーなくページが表示される' 
+      it '投稿データがゼロでページが表示される' do
+        user = create(:user)
+        post = create(:post, title:'祐天寺駅', user: user)
+        fill_in 'keyword', with: nil
+        find('.search_button').click
+        all('post_container post').count eq 0
+      end
     end
   end
 end
