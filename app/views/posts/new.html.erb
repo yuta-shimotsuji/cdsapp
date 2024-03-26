@@ -38,38 +38,41 @@
       <h4>検索結果 "<%= @keyword %>"</h4>
 
       <%= form_with url: search_posts_path, local: true, method: :get do |form| %>
+        <%= form.label :keyword, class:"hidden" %>
         <%= form.text_field :keyword %>
-        <%= form.submit "検索" %>
+        <%= form.submit "検索", class:"search_button" %>
       <% end %>
 
-      <% @posts.each do |p| %>
+      <div class="post_container">
+        <% @posts.each do |p| %>
           <div class="post">
-          <% if p.user.image.attached? %>
-            <%= image_tag p.user.image, class:"user_image_post_icon" %>
-          <% else %>
-            <%= image_tag 'icon.png', class:"user_image_post_icon" %>
-          <% end %>
-          <div class="post_contents">
-            <div class="post_contents_left">
-              <div><%= link_to p.user.name, account_path(p.user.id) %></div>
-              <div><%= link_to p.title, post_path(p.id), data: { turbo: false } %></div>
-              <div><%= p.body %></div>
-              <div><%= p.address %></div>
-              <% if p.favorited?(current_user) %>
-                <%= link_to post_favorites_path(p.id), method: :delete do %>
-                  <span style="color:red;">❤︎</span><span class="favorite_count"><%= p.favorite_count(p) %></span>
-                <% end %>
-              <% else %>
-                <%= link_to post_favorites_path(p.id), method: :post do %>
-                  <span>❤︎</span><span class="favorite_count"><%= p.favorite_count(p) %></span>
-              <% end %>
+            <% if p.user.image.attached? %>
+              <%= image_tag p.user.image, class:"user_image_post_icon" %>
+            <% else %>
+              <%= image_tag 'icon.png', class:"user_image_post_icon" %>
             <% end %>
+            <div class="post_contents">
+              <div class="post_contents_left">
+                <div><%= link_to p.user.name, account_path(p.user.id) %></div>
+                <div><%= link_to p.title, post_path(p.id), data: { turbo: false } %></div>
+                <div><%= p.body %></div>
+                <div><%= p.address %></div>
+                <% if p.favorited?(current_user) %>
+                  <%= link_to post_favorites_path(p.id), method: :delete do %>
+                    <span style="color:red;">❤︎</span><span class="favorite_count"><%= p.favorite_count(p) %></span>
+                  <% end %>
+                <% else %>
+                  <%= link_to post_favorites_path(p.id), method: :post do %>
+                    <span>❤︎</span><span class="favorite_count"><%= p.favorite_count(p) %></span>
+                <% end %>
+              <% end %>
+              </div>
+              <div class="post_contents_right"><%= p.created_at.strftime("%Y年%m月%d日") %></div>
             </div>
-            <div class="post_contents_right"><%= p.created_at.strftime("%Y年%m月%d日") %></div>
           </div>
-        </div>
-      <% end %>
-      <%= paginate @posts %>
+        <% end %>
+        <%= paginate @posts %>
+      </div>
     </div>
   </div>
 

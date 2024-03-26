@@ -94,13 +94,23 @@ RSpec.describe "Posts", type: :system do
       end
     end
     context '投稿削除ボタンをクリック' do
-      it '投稿削除に成功する' 
+      it '投稿削除に成功する' do
+        visit post_path(@user)
+        click_link '削除'
+        expect(page).to have_content '投稿を削除しました'
+      end
     end
   end
 
   describe '検索機能について' do
     context '投稿されているワードで検索をかける' do
-      it 'ワードに関連する投稿が表示される' 
+      it 'ワードに関連する投稿が表示される' do
+        user = create(:user)
+        post = create(:post, title:'祐天寺駅', user: user)
+        fill_in 'keyword', with: '祐天寺駅'
+        find('.search_button').click
+        all('post_container post').count eq 1
+      end
     end
     context '投稿されていないワードで検索をかける' do
       it '投稿データがゼロで、エラーなくページが表示される' 
