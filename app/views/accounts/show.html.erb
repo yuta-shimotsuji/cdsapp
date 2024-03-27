@@ -2,7 +2,7 @@
 
   <aside class="sidebar">
     <div class="widget widget--sticky--first"><p>投稿一覧<p></div>
-    <div class="widget widget--sticky--second"><%= link_to "いいね一覧" , "/accounts/favorite_show/#{@user.id}" %></div>
+    <div class="widget widget--sticky--second"><%= link_to "いいね一覧" , favorite_show_account_path(@user.id) %></div>
   </aside>
 
   <main class="main">
@@ -46,8 +46,10 @@
               </div>
               <div class="post_contents_right">
                 <div><%= p.created_at.strftime("%Y年%m月%d日") %></div>
-                <% if @user.id == current_user.id %>
-                  <div><%= link_to "削除する", post_path(p.id), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
+                <% unless current_user.nil? %>
+                  <% if @user.id == current_user.id %>
+                    <div><%= link_to "削除する", post_path(p.id), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
