@@ -1,24 +1,5 @@
-# README
+<h1>幹事サポート</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<p>どういうサービス？：１０名以上で遊べるスポットを探せるサイト</p>
+<p>何ができるの？：GoogleMapを見ながら、スポットのレビューを投稿・確認</p>
+<p>アピールポイント：GoogleMapApiを入れているため、視覚的に情報収集可能</p>
