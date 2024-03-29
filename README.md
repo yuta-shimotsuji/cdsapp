@@ -43,6 +43,6 @@
 
 <h1>テスト</h1>
 <ul>
-  <li>単体テスト(modelspec)</li>
-  <li>結合テスト(systemspec)</li>
+  <li>単体テスト(model)</li>
+  <li>結合テスト(system)</li>
 </ul>
