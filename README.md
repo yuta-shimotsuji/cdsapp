@@ -3,12 +3,17 @@
 <p>何ができるの？：GoogleMapを見ながら、スポットのレビューを投稿・確認</p>
 <p>アピールポイント：GoogleMapApiを入れているため、視覚的に情報収集可能</p>
 
-
 <img width="1063" alt="スクリーンショット 2024-03-29 14 33 55" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/44a4782d-60b3-4c99-8ff0-820a4722beae">
+
+
+
 
 <h1>URL</h1>
 <p>ゲストログイン機能で即座に使い始めることが可能です！</p>
-<https://cdsapp-c4875fa80e36.herokuapp.com/posts/new>
+(https://cdsapp-c4875fa80e36.herokuapp.com)
+
+
+
 
 
 <h1>使用技術</h1>
@@ -20,6 +25,9 @@
   <li>GoogleMapApi Javascript</li>
 </ul>
 
+
+
+
 <h1>機能一覧</h1>
 <ul>
   <li>投稿機能</li>
@@ -29,4 +37,12 @@
   <li>ページネーション機能(kaminari)</li>
   <li>検索機能</li>
   <li>地図表示機能(GoogleMapApi Javascript)</li>
+</ul>
+
+
+
+<h1>テスト</h1>
+<ul>
+  <li>単体テスト(modelspec)</li>
+  <li>結合テスト(systemspec)</li>
 </ul>
