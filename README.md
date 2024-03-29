@@ -11,9 +11,9 @@
 
 <h1>使用技術</h1>
 <ul>
-  <li>Ruby</li>
-  <li>Ruby on Rails</li>
-  <li>PostgreSQL</li>
+  <li>Ruby 3.2.2</li>
+  <li>Ruby on Rails 7.0.8.1</li>
+  <li>PostgreSQL 13.12</li>
   <li>Rspec</li>
   <li>GoogleMapApi</li>
 </ul>
