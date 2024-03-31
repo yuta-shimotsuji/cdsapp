@@ -86,3 +86,5 @@ gem 'geocoder'
 gem 'pry-rails'
 
 gem 'kaminari'
+
+gem "aws-sdk-s3", require: false
