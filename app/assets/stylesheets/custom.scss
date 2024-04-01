@@ -6,7 +6,7 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin-top: 100px;
-  background-color: #f8f9fa;
+  background-color: #F0F0F0;
 }
 
 .footer-custom p {
@@ -331,4 +331,41 @@
 
 .jumbotron_custom {
   height: 500px;
+}
+
+@media screen and (max-width: 1020px) {
+	/* 1020px以下に適用されるCSS（タブレット用） */
+  input[type="text"]{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+	/* 768px以下に適用されるCSS（スマホ用） */
+  input[type="text"]{
+    width: 80%;
+  }
+
+  .post_contents_container {
+    display: initial;
+    justify-content: initial;
+  }
+
+  .post_form_container {
+    width: auto;
+    border: dashed 2px #f0f0f0;
+    padding: 30px;
+  }
+  
+  .post_index_container {
+    width: auto;
+    border: dashed 2px #f0f0f0;
+    padding: 30px;
+  }
+
+  .post_contents {
+    font-size: 10px;
+    display: initial;
+    justify-content: initial;
+    width: 100%;
+  }
 }
