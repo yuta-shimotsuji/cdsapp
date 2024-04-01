@@ -1,8 +1,8 @@
 <div class="wrapper">
 
   <aside class="sidebar">
-    <div class="widget widget--sticky--first"><p>投稿一覧<p></div>
-    <div class="widget widget--sticky--second"><%= link_to "いいね一覧" , favorite_show_account_path(@user.id) %></div>
+    <div class="widget widget--sticky--first"><p class="widget_1">投稿一覧<p></div>
+    <div class="widget widget--sticky--second"><%= link_to "いいね一覧" , favorite_show_account_path(@user.id) , class:"widget_1" %></div>
   </aside>
 
   <main class="main">
@@ -10,7 +10,7 @@
       <div class="user_info">
         <% if user_signed_in? && @user == current_user %>
           <h1 class="page_user_name"><%= @user.name %>のマイページ</h1>
-          <h3>アドレス：<%= @user.email %></h3>
+          <h3 class="page_user_address">アドレス：<%= @user.email %></h3>
           <%= link_to "編集ページへ",  edit_user_registration_path(@user) %><br/>
         <% else %>
           <h1 class="page_user_name"><%= @user.name %>のページ</h1>

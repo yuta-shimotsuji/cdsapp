@@ -338,9 +338,83 @@
   input[type="text"]{
     width: 80%;
   }
+
+  .sidebar {
+    width: auto;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .wrapper {
+    width: 94%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: initial;
+    justify-content: initial;
+    min-height: 600px;
+  }
+
+  .widget {
+    padding: 0px;
+    margin: 0px;
+    background-color: #fff;
+    height: 100px;
+  }
+
+  .widget_1 {
+    background-color: #fff;
+  }
+
+  .widget--sticky--first {
+    top: 0px;
+    position: initial;
+    display: initial;
+    justify-content: initial;
+    align-items: initial;
+    font-size: 20px;
+  }
+  
+  .widget--sticky--second {
+    top: 0px;
+    position: initial;
+    display: initial;
+    justify-content: initial;
+    align-items: initial;
+    font-size: 20px;
+  }
+
+  .main_container {
+    display: flex;
+    justify-content: space-between;
+    border: dashed 2px #fff;
+    padding: 20px;
+  }
+  
+  .main {
+    width: auto;
+    background-color: #F0F0F0;
+    padding: 50px;
+  }
+
+  .main_container {
+    width: auto;
+    display: initial;
+    justify-content: initial;
+    border: initial;
+    padding: 20px;
+  }
+
+  .page_user_name {
+    font-size: medium;
+  }
+
+  .page_user_address {
+    font-size: medium;
+  }
 }
+
 @media screen and (max-width: 768px) {
-	/* 768px以下に適用されるCSS（スマホ用） */
+	/* 768px以下に適用されるCSS（スマホ(sp)用） */
   input[type="text"]{
     width: 80%;
   }
