@@ -217,6 +217,18 @@
   margin: 4px 0px;
 }
 
+.edit_field > input[type="text"] {
+  width: 60%;
+}
+
+.edit_field > input[type="password"] {
+  width: 60%;
+}
+
+.edit_field > input[type="email"] {
+  width: 60%;
+}
+
 // devise パスワード再設定ページ
 // 
 // 
@@ -410,6 +422,10 @@
 
   .page_user_address {
     font-size: medium;
+  }
+
+  .edit_field {
+    text-align: initial;
   }
 }
 
