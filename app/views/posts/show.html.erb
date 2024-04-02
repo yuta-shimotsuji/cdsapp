@@ -1,12 +1,13 @@
 <div class="post_show_wallpaper">
-
-  <div><%= @user.name %></div>
-  <div><%= @post.title %></div>
-  <div><%= @post.address %></div>
-  <div>(約)<%= @post.count %>人</div>
-  <div>(約)<%= @post.price %>円</div>
-  <div><%= @post.play %></div>
-  <div id='map'></div>
+  <div class="post_show_info">
+    <div><%= @user.name %></div>
+    <div><%= @post.title %></div>
+    <div><%= @post.address %></div>
+    <div>(約)<%= @post.count %>人</div>
+    <div>(約)<%= @post.price %>円</div>
+    <div><%= @post.play %></div>
+    <div id='map'></div>
+  </div>
 
   <ul class="post_action">
     <% unless current_user.nil? %>
