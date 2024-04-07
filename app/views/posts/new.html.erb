@@ -32,7 +32,7 @@
           </p>
 
           <p class="posts_new_form">住所<br>
-          <%= f.text_field :address, id:"address_field" %>
+          <%= f.text_area :address, id:'address_field' %>
           </p>
           
           <p class="posts_new_form"><%= f.submit %>
@@ -102,12 +102,13 @@
       zoom: 13,
     });
 
+    let reserch_marker = new google.maps.Marker();
     google.maps.event.addListener(map, 'click', mylistener);
 
     function mylistener(event){
-      var marker = new google.maps.Marker();
-      marker.setPosition(new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()));
-      marker.setMap(map);
+      reserch_marker.setMap(null);
+      reserch_marker.setPosition(new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()));
+      reserch_marker.setMap(map);
       geocoder.geocode({ location: event.latLng }).then((response) =>{ 
         document.getElementById('address_field').innerHTML = response.results[0].formatted_address;
       });
