@@ -102,11 +102,6 @@
       zoom: 13,
     });
 
-    marker = new google.maps.Marker({
-      position:  {lat: 35.681236, lng:139.767125},
-      map: map
-    });
-
     google.maps.event.addListener(map, 'click', mylistener);
 
     function mylistener(event){
@@ -123,14 +118,21 @@
       <% if results.present? %>
         <% @latlng = results.first.coordinates %>
         (function() {
+            let contentString = "<%= p.title %>";
+            let infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
             let marker = new google.maps.Marker({
                 position:{lat: <%= @latlng[0] %>, lng: <%= @latlng[1] %>},
-                map: map
+                map: map,
+                title: contentString
+            });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
             });
         })();
       <% end %>
     <% end %>
-
   }
 
   function codeAddress(){
