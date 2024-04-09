@@ -11,6 +11,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     @latLng_test = Geocoder.search(@post.address)
+    @comment = Comment.new
+    @post_comments = @post.comments
     if @latLng_test.present?
       @latLng = Geocoder.search(@post.address).first.coordinates
     else

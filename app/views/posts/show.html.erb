@@ -20,6 +20,20 @@
   </ul>
 </div>
 
+<%= form_with model:[@post, @comment], local: true, data: { turbo: false } do |f| %>
+  <%= f.text_area :content, rows:'5', placeholder: "Any comments on this post?", class:"form-control mt-3"  %>
+    <div class="text-right">
+     <%= f.submit "Submit", class: "btn btn-primary mt-3 mb-3" %>
+    </div>
+<% end %>
+
+<% @post_comments.each do |comment| %>
+  <div class="col-3 text-center">
+     <div class="small mb-4"><%= comment.user.name %></div>
+  </div>
+ <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, local: true, "data-confirm" => t('comments.create.delete_confirm'), class: "btn-sm btn-danger", data: { turbo: false } %></td>
+<% end %>
+
 <script>
   let map
 
