@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   validates :user_id, {presence: true}
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   def favorited?(user)
     if user.present?
