@@ -20,19 +20,38 @@
   </ul>
 </div>
 
-<%= form_with model:[@post, @comment], local: true, data: { turbo: false } do |f| %>
-  <%= f.text_area :content, rows:'5', placeholder: "Any comments on this post?", class:"form-control mt-3"  %>
-    <div class="text-right">
-     <%= f.submit "Submit", class: "btn btn-primary mt-3 mb-3" %>
+<div class="comment_wallpaper">
+  <div class="comment_container">
+    <div class="comment_body">
+      <div class="comment_form">
+        <%= form_with model:[@post, @comment], local: true, data: { turbo: false } do |f| %>
+          <%= f.text_field :content, rows:'5', placeholder: "コメントしてみましょう！"  %>
+          <%= f.submit "投稿" %>
+        <% end %>
+      </div>
+      <% @post_comments.each do |comment| %>
+        <div class="comment_post">
+          <div class="comment_left">
+            <div class="left_left">
+              <% if comment.user.image.attached? %>
+                <%= image_tag comment.user.image, class:"user_image_post_icon" %>
+              <% else %>
+                <%= image_tag 'icon.png', class:"user_image_post_icon" %>
+              <% end %>
+              <div><%= comment.user.name %></div>
+            </div>
+            <div class="comment_content"><%= comment.content %></div>
+          </div>
+          <div class="comment_right">
+            <% if comment.user.id == current_user.id %>
+              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, local: true, data: { turbo: false, confirm: "本当に削除しますか？" } %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     </div>
-<% end %>
-
-<% @post_comments.each do |comment| %>
-  <div class="col-3 text-center">
-     <div class="small mb-4"><%= comment.user.name %></div>
   </div>
- <%= link_to "Delete", post_comment_path(comment.post, comment), method: :delete, local: true, "data-confirm" => t('comments.create.delete_confirm'), class: "btn-sm btn-danger", data: { turbo: false } %></td>
-<% end %>
+</div>
 
 <script>
   let map

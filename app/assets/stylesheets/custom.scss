@@ -323,6 +323,52 @@
   width: 100%;
 }
 
+.comment_wallpaper {
+  width: 100%;
+  padding: 100px;
+  text-align: center;
+}
+
+.comment_container {
+  width: 100%;
+}
+
+.comment_body {
+  width: 100%;
+}
+
+.comment_form {
+  width: 100%;
+}
+
+.comment_post {
+  margin: 10px 0px;
+  border-top: 1px solid #e8e8e8;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment_form input[type="text"] {
+  width: 100%;
+  height: 100px;
+}
+
+.comment_form input[type="submit"] {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+}
+
+.comment_right {
+  text-align: right;
+}
+
+.comment_left {
+  display: flex;
+  padding-top: 25px;
+}
+
 // postコントローラー、edit
 // 
 // 
