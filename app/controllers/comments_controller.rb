@@ -5,8 +5,12 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
-    @comment.save
-    redirect_to post_path(@post)
+    if @comment.save
+      redirect_to post_path(@post)
+    else
+      flash[:alert] = 'コメントに失敗しました'
+      redirect_to post_path(@post)
+    end
   end
 
   def destroy
