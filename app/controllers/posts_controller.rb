@@ -4,13 +4,15 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @posts = Post.all.includes(:user).page(params[:page]).per(10)
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts.includes(:user).page(params[:page]).per(10).order(created_at: :desc) : Post.all.includes(:user).page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
     @post = Post.find(params[:id])
     @user = User.find(@post.user_id)
     @latLng_test = Geocoder.search(@post.address)
+    @comment = Comment.new
+    @post_comments = @post.comments
     if @latLng_test.present?
       @latLng = Geocoder.search(@post.address).first.coordinates
     else
@@ -55,16 +57,17 @@ class PostsController < ApplicationController
 
   def search
     @post = Post.new
-    if params[:keyword].present?
-      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10)
+    if params[:keyword].present? || params[:tag_id].present?
+      @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts.where('address LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10).order(created_at: :desc) : Post.where('address LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10).order(created_at: :desc)
       @keyword = params[:keyword]
+      @keyword_word = params[:keyword] + "エリア内"
     else
-      @posts = Post.all.includes(:user).page(params[:page]).per(10)
+      @posts = Post.all.includes(:user).page(params[:page]).per(10).order(created_at: :desc)
     end
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :address)
+    params.require(:post).permit(:title, :body, :address, :count, :play, :price, tag_ids: [])
   end
 
   def ensure_correct_user

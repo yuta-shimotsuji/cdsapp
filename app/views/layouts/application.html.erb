@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Myapp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +11,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
 
   <body>
@@ -28,7 +28,7 @@
       <% else %>
           <%= link_to "サインアップ", new_user_registration_path, class:"btn btn-outline-primary" %>
           <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-primary btn-header-custom" %>
-          <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class:"btn btn-outline-primary btn-header-custom" %>
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class:"btn btn-outline-primary btn-header-custom" %>
       <% end %>
     </div>
     <div class="flash-notifications">

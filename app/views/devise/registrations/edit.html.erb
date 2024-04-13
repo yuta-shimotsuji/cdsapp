@@ -10,42 +10,44 @@
       <div class="user_info">
         <h1 class="page_user_name">ユーザー情報編集</h1>
         <div class="edit_container">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
+          <% unless @user.id == 11 %>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
 
-            <div class="edit_field">
-              <%= f.label :name %>
-              <%= f.text_field :name, autofocus: true, class:"edit_form", placeholder:"新しい名前" %>
-            </div>
+              <div class="edit_field">
+                <%= f.label :name %>
+                <%= f.text_field :name, autofocus: true, class:"edit_form", placeholder:"新しい名前" %>
+              </div>
 
-            <div class="edit_field">
-              <%= f.label :email %>
-              <%= f.email_field :email, autocomplete: "email", class:"edit_form", placeholder:"新しいメールアドレス" %>
-            </div>
-        
-            <div class="edit_field">
-              <%= f.label :password %>
-              <%= f.password_field :password, autocomplete: "new-password", class:"edit_form", placeholder:"新しいパスワード min:6" %>
-            </div>
+              <div class="edit_field">
+                <%= f.label :email %>
+                <%= f.email_field :email, autocomplete: "email", class:"edit_form", placeholder:"新しいメールアドレス" %>
+              </div>
           
-            <div class="edit_field">
-              <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"edit_form" %>
-            </div>
-          
-            <div class="edit_field">
-              <%= f.label :current_password %>
-              <%= f.password_field :current_password, autocomplete: "current-password", class:"edit_form" %>
-            </div>
+              <div class="edit_field">
+                <%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "new-password", class:"edit_form", placeholder:"新しいパスワード min:6" %>
+              </div>
+            
+              <div class="edit_field">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"edit_form" %>
+              </div>
+            
+              <div class="edit_field">
+                <%= f.label :current_password %>
+                <%= f.password_field :current_password, autocomplete: "current-password", class:"edit_form" %>
+              </div>
 
-            <div>
-                <%= f.label :image %>
-                <%= f.file_field :image, class:"edit_form" %>
-            </div>
-          
-            <div class="actions">
-              <%= f.submit "Update" %>
-            </div>
+              <div>
+                  <%= f.label :image %>
+                  <%= f.file_field :image, class:"edit_form" %>
+              </div>
+            
+              <div class="actions">
+                <%= f.submit "Update" %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
