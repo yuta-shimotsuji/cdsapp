@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @posts = Post.all.includes(:user).page(params[:page]).per(10)
+    @posts = Post.all.includes(:user).page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
@@ -58,10 +58,10 @@ class PostsController < ApplicationController
   def search
     @post = Post.new
     if params[:keyword].present?
-      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10)
+      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10).order(created_at: :desc)
       @keyword = params[:keyword]
     else
-      @posts = Post.all.includes(:user).page(params[:page]).per(10)
+      @posts = Post.all.includes(:user).page(params[:page]).per(10).order(created_at: :desc)
     end
   end
 
