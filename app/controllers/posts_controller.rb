@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @posts = Post.all.includes(:user).page(params[:page]).per(10).order(created_at: :desc)
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts.includes(:user).page(params[:page]).per(10).order(created_at: :desc) : Post.all.includes(:user).page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show
