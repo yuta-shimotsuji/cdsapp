@@ -57,9 +57,10 @@ class PostsController < ApplicationController
 
   def search
     @post = Post.new
-    if params[:keyword].present?
-      @posts = Post.where('address LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10).order(created_at: :desc)
+    if params[:keyword].present? || params[:tag_id].present?
+      @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts.where('address LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10).order(created_at: :desc) : Post.where('address LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10).order(created_at: :desc)
       @keyword = params[:keyword]
+      @keyword_word = params[:keyword] + "エリア内"
     else
       @posts = Post.all.includes(:user).page(params[:page]).per(10).order(created_at: :desc)
     end

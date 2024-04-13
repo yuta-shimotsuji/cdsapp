@@ -64,14 +64,15 @@
         <%= form.text_field :keyword %>
         <%= form.submit "検索" %>
       <% end %>
-      <h4>タグ検索</h4>
-      <%= form_tag root_path, method: :get, class: 'boards__searchForm' do %>
+      <h4>タグ検索 "<%= @keyword_word %>"</h4>
+      <%= form_tag search_posts_path, method: :get, class: 'boards__searchForm' do %>
         <%= select_tag :tag_id,
                        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                        {
                          prompt: 'タグで絞り込み検索',
                        }
         %>
+        <input type="hidden" name="keyword" value="<%= @keyword %>">
         <%= submit_tag "検索" %>
       <% end %>
       <div class="post_container">
