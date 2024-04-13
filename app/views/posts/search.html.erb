@@ -78,7 +78,12 @@
                 <% end %>
               <% end %>
               </div>
-              <div class="post_contents_right"><%= p.created_at.strftime("%Y年%m月%d日") %></div>
+              <div class="post_contents_right">
+                <%= p.created_at.strftime("%Y年%m月%d日") %>
+                <% p.tags.each do |tag| %>
+                  <p class="index_tag_item">#<%= tag.name %></p>
+                <% end %>     
+              </div>
             </div>
           </div>
         <% end %>
