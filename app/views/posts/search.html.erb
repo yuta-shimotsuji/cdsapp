@@ -24,7 +24,7 @@
           </p>
 
           <p>費用感(一人当たり)<br>
-          <%= f.text_area :price %>
+          <%= f.number_field :price %>
           </p>
 
           <p>できること<br>
@@ -34,6 +34,18 @@
           <p>住所<br>
           <%= f.text_area :address, id:"address_field" %>
           </p>
+
+          <div class="check_box">
+          <span>タグ</span>
+          <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div>
+              <%= tag.label do %>
+                <%= tag.check_box %>
+                <%= tag.text %>
+              <% end %>
+            </div>
+          <% end %>
+          </div>
           
           <p><%= f.submit %>
           </p>
