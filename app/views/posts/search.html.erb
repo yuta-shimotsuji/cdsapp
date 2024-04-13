@@ -59,7 +59,7 @@
     </div>
     <div class="post_index_container">
       <h3>投稿一覧</h3>
-      <h4>検索結果 "<%= @keyword %>"</h4>
+      <h4>あいまいエリア検索 "<%= @keyword %>"</h4>
       <%= form_with url: search_posts_path, local: true, method: :get do |form| %>
         <%= form.text_field :keyword %>
         <%= form.submit "検索" %>
@@ -70,9 +70,9 @@
                        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
                        {
                          prompt: 'タグで絞り込み検索',
-                         onchange: 'submit(this.form);'
                        }
         %>
+        <%= submit_tag "検索" %>
       <% end %>
       <div class="post_container">
         <% @posts.each do |p| %>

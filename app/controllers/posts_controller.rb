@@ -58,7 +58,7 @@ class PostsController < ApplicationController
   def search
     @post = Post.new
     if params[:keyword].present?
-      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10).order(created_at: :desc)
+      @posts = Post.where('address LIKE ?', "%#{params[:keyword]}%").includes(:user).page(params[:page]).per(10).order(created_at: :desc)
       @keyword = params[:keyword]
     else
       @posts = Post.all.includes(:user).page(params[:page]).per(10).order(created_at: :desc)
