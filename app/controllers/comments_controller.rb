@@ -13,17 +13,8 @@ class CommentsController < ApplicationController
         redirect_to post_path(@post)
       end
     else
-      @user = User.find(@post.user_id)
-      @latLng_test = Geocoder.search(@post.address)
-      @comment = Comment.new
-      @post_comments = @post.comments
-      if @latLng_test.present?
-        @latLng = Geocoder.search(@post.address).first.coordinates
-      else
-        redirect_to root_path, notice: '住所が不正のため表示できませんでした'
-      end
       flash[:alert] = '投稿にはログインが必要です'
-      render "posts/show"
+      redirect_to post_path(@post)
     end
   end
 

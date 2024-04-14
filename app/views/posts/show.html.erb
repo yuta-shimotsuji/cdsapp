@@ -30,7 +30,7 @@
     <div class="comment_body">
       <div class="comment_form">
         <%= form_with model:[@post, @comment], local: true, data: { turbo: false } do |f| %>
-          <%= f.text_field :content, rows:'5', placeholder: "コメントしてみましょう！"  %>
+          <%= f.text_field :content, rows:'5', placeholder: "コメントしてみましょう！(※コメントにはログインが必要です)"  %>
           <%= f.submit "投稿" %>
         <% end %>
       </div>
