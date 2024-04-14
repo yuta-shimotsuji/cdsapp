@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
     sequence(:content) { "aaaaa" }
-    assosiation :user
-    assosiation :post
+    association :user
+    association :post
   end
 end
