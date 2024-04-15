@@ -49,7 +49,7 @@
           </div>
           <div class="comment_right">
             <% if comment.user.id == current_user.id %>
-              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, local: true, data: { turbo: false, confirm: "本当に削除しますか？" } %>
+              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, local: true, data: { turbo: false, confirm: "本当に削除しますか？" }, class:'comment_destroy' %>
             <% end %>
           </div>
         </div>

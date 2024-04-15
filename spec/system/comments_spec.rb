@@ -15,10 +15,15 @@ RSpec.describe "Comments", type: :system do
   describe '投稿機能について' do
     context 'コメントを入れて投稿ボタンを押した場合' do
       it '投稿に成功する' do
+        fill_in 'comment[content]', with: 'ttttt'
+        click_button '投稿'
+        expect(page).to have_content 'コメントに成功しました'
       end
     end
     context 'コメントを入れずに投稿ボタンを押した場合' do
       it '投稿に失敗する' do
+        click_button '投稿'
+        expect(page).to have_content 'コメントに失敗しました'
       end
     end
   end
@@ -26,6 +31,10 @@ RSpec.describe "Comments", type: :system do
   describe '投稿削除について' do
     context '削除ボタンを押した場合' do
       it '投稿削除に成功する' do
+        fill_in 'comment[content]', with: 'ttttt'
+        click_button '投稿'
+        find('.comment_destroy').click
+        expect(page).to have_content 'コメントを削除しました'
       end
     end
   end

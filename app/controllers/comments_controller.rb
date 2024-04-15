@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
       @comment.post_id = @post.id
       if @comment.save
         redirect_to post_path(@post)
+        flash[:notice] = 'コメントに成功しました'
       else
         flash[:alert] = 'コメントに失敗しました'
         redirect_to post_path(@post)
@@ -22,6 +23,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post_comments = @post.comments
     Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    flash[:notice] = 'コメントを削除しました'
     redirect_to post_path(@post)
   end
 
