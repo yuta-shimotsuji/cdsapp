@@ -5,20 +5,24 @@ RSpec.describe PostTag, type: :model do
 
     let(:user) { create(:user) }
     let(:post) { create(:post, user: user) }
-    let(:tag) { create(:tag) }
-    let(:post_tag) { create(:post_tag, post_id: post.id, tag_id: tag.id) }
+    let(:tags) { create_list(:tag, 2) }
+    let(:post_tag) { create(:post_tag, post_id: post.id, tag_id: tags[0].id) }
+    let(:post_tag2) { create(:post_tag, post_id: post.id, tag_id: tags[1].id) }
 
-    it 'タグ付け投稿ができるか' do
+    it 'タグ付けができること' do
       expect(post_tag).to be_valid
     end
 
-    it "複数タグを投稿ができること" do
+    it "一つの投稿に、複数のタグ付けができること" do
+      expect(post_tag).to be_valid
+      expect(post_tag2).to be_valid
     end
     
     it "タグを選択していなくても投稿ができること" do
+      expect(post).to be_valid
     end
 
-    it '存在しない投稿にタグづけができない状態か' do
+    it '存在しない投稿にタグ付けができない状態であること' do
       post_tag.post_id = nil
       expect(post_tag).not_to be_valid
     end
