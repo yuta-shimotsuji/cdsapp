@@ -30,7 +30,7 @@
     <div class="comment_body">
       <div class="comment_form">
         <%= form_with model:[@post, @comment], local: true, data: { turbo: false } do |f| %>
-          <%= f.text_field :content, rows:'5', placeholder: "コメントしてみましょう！"  %>
+          <%= f.text_field :content, rows:'5', placeholder: "コメントしてみましょう！(※コメントにはログインが必要です)"  %>
           <%= f.submit "投稿" %>
         <% end %>
       </div>
@@ -49,7 +49,7 @@
           </div>
           <div class="comment_right">
             <% if comment.user.id == current_user.id %>
-              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, local: true, data: { turbo: false, confirm: "本当に削除しますか？" } %>
+              <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, local: true, data: { turbo: false, confirm: "本当に削除しますか？" }, class:'comment_destroy' %>
             <% end %>
           </div>
         </div>

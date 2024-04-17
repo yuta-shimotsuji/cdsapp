@@ -19,6 +19,9 @@ RSpec.describe "Posts", type: :system do
         fill_in 'post[title]', with: '東京駅'
         fill_in 'post[body]', with: '東京の中心地'
         fill_in 'post[address]', with: '東京都千代田区丸の内１丁目'
+        fill_in 'post[count]', with: '11'
+        fill_in 'post[play]', with: 'でかい'
+        fill_in 'post[price]', with: '10000'
         click_button '登録する'
         expect(page).to have_content '投稿しました'
       end
