@@ -43,7 +43,9 @@
 </ul>
 
 <h3>#1.投稿機能</h3>
+<p>1枚目：投稿したい情報をフォームに記入し、投稿ボタンをクリック</p>
 <img width="500" alt="スクリーンショット 2024-04-21 15 46 48" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/dca34ea0-3a49-48ea-b190-e9db34dadaf8"><br><br><br>
+<p>2枚目：投稿に成功すれば、投稿詳細ページにリダイレクト</p>
 <img width="500" alt="スクリーンショット 2024-04-21 15 47 19" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/e120f68f-79e8-4ce4-a0a2-679179f55962"><br><br>
 
 <h3>#2.ユーザー登録機能(サインアップ,devise)</h3>
@@ -92,3 +94,5 @@
   <li>単体テスト(model)</li>
   <li>結合テスト(system)</li>
 </ul>
+
+<h1>今後の課題</h1>
