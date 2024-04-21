@@ -12,9 +12,8 @@
 <p>ゲストログイン機能で即座に使い始めることが可能です！</p>
 (https://cdsapp-c4875fa80e36.herokuapp.com)
 
-
-
-
+<h1>ER図</h1>
+<img width="691" alt="スクリーンショット 2024-04-21 15 25 57" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/8a23f786-0ec7-412d-9ef8-d76f31a953a2">
 
 <h1>使用技術</h1>
 <ul>
