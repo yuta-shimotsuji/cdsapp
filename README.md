@@ -51,7 +51,14 @@
 <img width="500" alt="スクリーンショット 2024-04-21 15 58 29" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/daffd602-b4b4-4e14-8914-b2e99b11671f"><br><br>
 
 <h3>#3.ログイン機能(devise)</h3>
+<img width="500" alt="スクリーンショット 2024-04-21 16 04 21" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/dcf7d15b-916a-4803-be0a-5f234458d78c"><br><br><br>
+<img width="500" alt="スクリーンショット 2024-04-21 16 04 32" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/c1bad4bd-831f-4864-8d10-0c471688fd04"><br><br>
+
 <h3>#4.位置情報検索機能(geocoder)</h3>
+<img width="500" alt="スクリーンショット 2024-04-21 16 06 02" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/4a92204e-721b-41e0-8616-6dbdee0e5604"><br><br><br>
+<img width="500" alt="スクリーンショット 2024-04-21 16 06 10" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/4623f2d9-2c34-4fe7-af58-521f20e2401e"><br><br><br>
+<img width="500" alt="スクリーンショット 2024-04-21 16 06 52" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/23da19cd-274a-487a-bc54-f9cc8f77b17c"><br><br>
+
 <h3>#5.いいね機能</h3>
 <h3>#6.ページネーション機能(kaminari)</h3>
 <h3>#7.検索機能</h3>
