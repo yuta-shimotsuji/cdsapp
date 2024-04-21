@@ -36,6 +36,9 @@
   <li>ページネーション機能(kaminari)</li>
   <li>検索機能</li>
   <li>地図表示機能(GoogleMapApi Javascript)</li>
+  <li>コメント機能</li>
+  <li>タグづけ機能</li>
+  <li>タグ検索機能</li>
 </ul>
 
 
