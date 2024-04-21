@@ -61,23 +61,33 @@
 <img width="500" alt="スクリーンショット 2024-04-21 16 04 32" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/c1bad4bd-831f-4864-8d10-0c471688fd04"><br><br>
 
 <h2>#4.位置情報検索機能(geocoder)</h2>
+<p>1枚目：スポット名を記入し、検索を押下</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 06 02" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/4a92204e-721b-41e0-8616-6dbdee0e5604"><br><br><br>
+<p>2枚目：スポット名を受け取りgeocoderが作動、該当する場所にピンが配置</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 06 10" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/4623f2d9-2c34-4fe7-af58-521f20e2401e"><br><br><br>
+<p>3枚目：該当する住所をフォームに記載</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 06 52" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/23da19cd-274a-487a-bc54-f9cc8f77b17c"><br><br>
 
 <h2>#5.いいね機能</h2>
+<p>1枚目：投稿のハートマークを押下</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 09 22" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/171c7a7d-71dc-442c-ae9a-75701fd81896"><br><br><br>
+<p>2枚目：ハートマークの色が変わり、いいねが追加される</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 09 33" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/97b20e40-d4b4-4a78-abac-0d41cd4d1a14"><br><br>
 
 <h2>#6.ページネーション機能(kaminari)</h2>
+<p>1枚目：Nextを押下(※2など、数値の押下でも可)</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 10 36" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/168b87ff-1bf5-4231-bc79-ad2edf409fd0"><br><br><br>
+<p>2枚目：投稿データが10件以上ある場合、隠されている11件目以上の情報が表示される</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 10 51" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/c75de4a2-9b99-4a2b-9b3c-0635142cf2d6"><br><br>
 
-<h2>#7.検索機能</h2>
+<h2>#7.検索機能　写真差し替えないとだめ</h2>
+<p>1枚目：検索フォームにエリアのワードを記入</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 12 07" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/27b604e7-41e0-4892-ba5b-b94c0bc98c3b"><br><br><br>
+<p>2枚目：検索結果として、住所情報(addressカラム)にエリア名が含まれたデータが表示</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 12 22" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/a7647df1-4133-4f5d-98bf-89953df50d0f"><br><br>
 
 <h2>#8.地図表示機能(GoogleMapApi Javascript)</h2>
+<p>1枚目：ジオコーディング済みの地理座標情報を用いてGoogleMapを表示</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 13 55" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/1ff2f8e4-339e-4272-bf94-4ce99e9b3bad"><br><br>
 
 <h2>#9.コメント機能</h2>
