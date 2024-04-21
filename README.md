@@ -91,16 +91,23 @@
 <img width="500" alt="スクリーンショット 2024-04-21 16 13 55" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/1ff2f8e4-339e-4272-bf94-4ce99e9b3bad"><br><br>
 
 <h2>#9.コメント機能</h2>
+<p>1枚目：投稿詳細ページの下にあるコメントフォームに、コメントを記載し投稿ボタンを押下</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 15 06" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/6b5c50e7-ba93-4f63-935a-befc15f0346e"><br><br><br>
+<p>2枚目：同じ投稿詳細ページにリダイレクト。コメントに成功の記載</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 15 13" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/ca948073-bcbe-4f70-a978-d8582f92f906"><br><br><br>
+<p>3枚目：コメント投稿者情報とコメント内容が表示</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 15 18" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/3699b3b6-c0d4-4774-82c4-61b3466bdcee"><br><br>
 
 <h2>#10.タグづけ機能</h2>
+<p>1枚目：タグとして選択した情報が記載されたラジオボタンをチェックし、投稿ボタンを押下</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 18 26" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/1b7cbae8-dda6-4669-8836-667c1533c59b"><br><br><br>
+<p>2枚目：投稿詳細ページにリダイレクトし、タグがハッシュタグの形式で表示される</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 18 39" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/081ca639-b53b-4a6a-9b61-2ee42cd37a9a"><br><br>
 
 <h2>#11.タグ検索機能</h2>
+<p>1枚目：プルダウンからタグを選択し、検索を押下</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 19 50" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/842372b5-80da-47e1-aab1-d6c2888a781c"><br><br><br>
+<p>2枚目：タグにが含まれる投稿のみが表示</p>
 <img width="500" alt="スクリーンショット 2024-04-21 16 20 12" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/41860665-d4d4-48d6-955a-6207739314ff"><br><br>
 
 <h1>テスト</h1>
