@@ -29,19 +29,21 @@
 
 <h1>機能一覧</h1>
 <ul>
-  <li>投稿機能</li>
-  <li>ユーザー登録、ログイン機能(devise)</li>
-  <li>位置情報検索機能(geocoder)</li>
-  <li>いいね機能</li>
-  <li>ページネーション機能(kaminari)</li>
-  <li>検索機能</li>
-  <li>地図表示機能(GoogleMapApi Javascript)</li>
-  <li>コメント機能</li>
-  <li>タグづけ機能</li>
-  <li>タグ検索機能</li>
+  <li>#1.投稿機能</li>
+  <li>#2.ユーザー登録、ログイン機能(devise)</li>
+  <li>#3.位置情報検索機能(geocoder)</li>
+  <li>#4.いいね機能</li>
+  <li>#5.ページネーション機能(kaminari)</li>
+  <li>#6.検索機能</li>
+  <li>#7.地図表示機能(GoogleMapApi Javascript)</li>
+  <li>#8.コメント機能</li>
+  <li>#9.タグづけ機能</li>
+  <li>#10.タグ検索機能</li>
 </ul>
 
-
+<h3>#1.投稿機能</h3>
+<img width="1435" alt="スクリーンショット 2024-04-21 15 46 48" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/dca34ea0-3a49-48ea-b190-e9db34dadaf8"><br><br><br>
+<img width="1435" alt="スクリーンショット 2024-04-21 15 47 19" src="https://github.com/yuta-shimotsuji/cdsapp/assets/142209347/e120f68f-79e8-4ce4-a0a2-679179f55962"><br><br>
 
 <h1>テスト</h1>
 <ul>
