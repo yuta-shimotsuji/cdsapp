@@ -220,8 +220,19 @@
 // 
 // 
 
+.user_info {
+  width: 100%;
+}
+
 .edit_field {
   text-align: right;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 5%;
+}
+
+.edit_container {
+  width: 100%;
 }
 
 .edit_form {
@@ -239,6 +250,14 @@
 
 .edit_field > input[type="email"] {
   width: 60%;
+}
+
+.edit_button {
+  padding: 10px 50px 10px 50px;
+}
+
+.account_delete {
+  padding: 10px 50px 10px 50px;
 }
 
 // devise パスワード再設定ページ
