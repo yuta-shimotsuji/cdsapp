@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :accounts, only: [:show] do
     member do
       get 'favorite_show'
+      get 'comment'
     end
   end
   get '/mypage' => 'accounts#mypage'
