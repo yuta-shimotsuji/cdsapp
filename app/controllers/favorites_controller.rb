@@ -1,14 +1,24 @@
 class FavoritesController < ApplicationController
 
   def create
-    @post_favorite = Favorite.new(user_id: current_user.id, post_id: params[:post_id])
-    @post_favorite.save
-    redirect_to root_path
+    if current_user != nil
+      @post_favorite = Favorite.new(user_id: current_user.id, post_id: params[:post_id])
+      @post_favorite.save
+      redirect_to root_path
+    else
+      flash[:alert] = 'いいねにはログインが必要です'
+      redirect_to root_path
+    end
   end
 
   def destroy
-    @post_favorite = Favorite.find_by(user_id: current_user.id, post_id: params[:post_id])
-    @post_favorite.destroy
-    redirect_to root_path
+    if current_user != nil
+      @post_favorite = Favorite.find_by(user_id: current_user.id, post_id: params[:post_id])
+      @post_favorite.destroy
+      redirect_to root_path
+    else
+      flash[:alert] = 'いいねにはログインが必要です'
+      redirect_to root_path
+    end
   end
 end
