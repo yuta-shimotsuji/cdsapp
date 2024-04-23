@@ -7,7 +7,7 @@
     </div>
 
     <h1 class="h3 mb-3 font-weight-normal form-title-signup">サインアップ</h1>
-    <p class="require_text">*全て必須項目です</p>
+    <p class="require_message"><span class="require_text">*</span>全て必須項目です</p>
     <%= f.text_field :name, autofocus: true, id:"inputEmail", class:"form-control registrations-input", placeholder:"Name" %>
     <%= f.email_field :email, autocomplete: "email", id:"inputEmail", class:"form-control registrations-input", placeholder:"Email address" %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password 最低6文字", id:"inputPassword", class:"form-control registrations-input" %>

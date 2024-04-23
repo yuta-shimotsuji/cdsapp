@@ -10,28 +10,28 @@
 
           <%= render 'layouts/error_messages', model: f.object %>
 
-          <p>エリア<br>
+          <p>エリア<span class="require_text">*</span><br>
           <%= f.text_field :title, id:"address"  %>
           <input type="button" value="検索" onclick="codeAddress()">
           </p>
           
-          <p>メモ<br>
+          <p>メモ<span class="require_text">*</span><br>
           <%= f.text_area :body %> 
           </p>
 
-          <p>遊べる人数(約)<br>
+          <p>遊べる人数(約)<span class="require_text">*</span><br>
           <%= f.number_field :count %>
           </p>
 
-          <p>費用感(一人当たり)<br>
+          <p>費用感(一人当たり)<span class="require_text">*</span><br>
           <%= f.number_field :price %>
           </p>
 
-          <p>できること<br>
+          <p>できること<span class="require_text">*</span><br>
           <%= f.text_area :play %>
           </p>
 
-          <p>住所<br>
+          <p>住所<span class="require_text">*</span><br>
           <%= f.text_area :address, id:"address_field" %>
           </p>
 

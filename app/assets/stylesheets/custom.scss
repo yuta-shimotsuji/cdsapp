@@ -206,8 +206,14 @@
 
 .require_text {
   text-align: center;
-  padding-top: 5px;
   color: #FF4500;
+  font-size: 20px;
+  padding-left: 2px;
+}
+
+.require_message {
+  color: #FF4500;
+  text-align: center;
 }
 
 // devise　編集ページ（共通レイアウト　accountコントローラー、showと共通レイアウトあり）
