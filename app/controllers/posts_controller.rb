@@ -27,8 +27,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post), notice: '投稿しました'
     else
       @posts = Post.all.includes(:user).page(params[:page]).per(10)
-      flash[:notice] = '投稿に失敗しました'
-      render action: :new, status: :unprocessable_entity
+      redirect_to root_path, notice: '投稿に失敗しました', flash: { error: @post.errors.full_messages }
     end
   end
 

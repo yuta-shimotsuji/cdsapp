@@ -8,7 +8,17 @@
         <h3>新規投稿</h3>
         <%= form_with model: @post, local: true, data: { turbo: false } do |f| %>
 
-          <%= render 'layouts/error_messages', model: f.object %>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <h4><%= flash[:error].count %> 件のエラーがあります</h4>
+              <ul>
+                <% flash[:error].each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
 
           <p class="posts_new_form">エリア<span class="require_text">*</span><br>
           <%= f.text_field :title, id:"address"  %>
