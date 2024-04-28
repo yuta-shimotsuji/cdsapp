@@ -17,11 +17,11 @@
   <ul class="post_action">
     <% unless current_user.nil? %>
       <% if @user.id == current_user.id %>
-        <li><%= link_to "編集", edit_post_path(@post.id), class:"btn btn-outline-primary", data: { turbo: false } %></li>
-        <li><%= link_to "削除", post_path(@post.id), class:"btn btn-outline-primary", data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></li>
+        <li><%= link_to "編集", edit_post_path(@post.id), class:"btn btn-primary post_show_button", data: { turbo: false } %></li>
+        <li><%= link_to "削除", post_path(@post.id), class:"btn btn-primary post_show_button", data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></li>
       <% end %>
     <% end %>
-    <li><%= link_to "戻る", :back, class:"btn btn-outline-secondary", data: { turbo: false } %></li>
+    <li><%= link_to "戻る", :back, class:"btn btn-secondary post_show_button", data: { turbo: false } %></li>
   </ul>
 </div>
 
