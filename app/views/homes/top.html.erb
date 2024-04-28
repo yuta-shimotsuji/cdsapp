@@ -6,11 +6,13 @@
     <div class="post_form_container">
         <h4>幹事サポートへようこそ！</h4>
         <h6>10名以上で遊べるスポットを共有し合いましょう!</h6>
+        <h6>サインアップすれば投稿・いいね・コメント・投稿検索が可能になります</h6>
         <%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-primary" %>
     </div>
     <div class="post_index_container">
       <div class="post_container">
         <h3>投稿サンプル</h3>
+        <%= link_to "新規登録をして他の投稿をみる", new_user_registration_path, class:"btn btn-primary sample_form_text" %>
         <% @posts.each do |p| %>
           <div class="post">
             <% if p.user.image.attached? %>

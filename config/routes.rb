@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   get '/mypage' => 'accounts#mypage'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
-  root to: "posts#new"
+  root to: "homes#top"
   get '/homes/top', to: 'homes#top'
   get '/homes/privacy_policy', to: 'homes#privacy_policy'
   get '/homes/terms_of_service', to: 'homes#terms_of_service'
