@@ -10,7 +10,7 @@ RSpec.describe "Posts", type: :system do
     fill_in 'user[email]', with: 'email@example.com'
     fill_in 'user[password]', with: 'password'
     click_button 'Log in'
-    visit root_path
+    visit new_post_path
   end
 
   describe '新規投稿について' do
