@@ -1,5 +1,10 @@
 class HomesController < ApplicationController
 
+  def top
+    @post = Post.new
+    @posts = Post.order("RANDOM()").limit(3)
+  end
+
   def privacy_policy
   end
 

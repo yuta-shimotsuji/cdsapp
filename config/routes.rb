@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/mypage' => 'accounts#mypage'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   root to: "posts#new"
+  get '/homes/top', to: 'homes#top'
   get '/homes/privacy_policy', to: 'homes#privacy_policy'
   get '/homes/terms_of_service', to: 'homes#terms_of_service'
   get '/homes/how_to_use_the_app', to: 'homes#how_to_use_the_app'
