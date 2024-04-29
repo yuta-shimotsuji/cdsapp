@@ -1,8 +1,12 @@
 class HomesController < ApplicationController
 
   def top
-    @post = Post.new
-    @posts = Post.order("RANDOM()").limit(3)
+    if current_user == nil
+      @post = Post.new
+      @posts = Post.order("RANDOM()").limit(3)
+    else
+      redirect_to new_post_path
+    end
   end
 
   def privacy_policy
