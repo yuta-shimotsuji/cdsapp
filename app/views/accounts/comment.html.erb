@@ -36,6 +36,11 @@
               </div>
               <div class="post_contents_right">
                 <div><%= p.created_at.strftime("%Y年%m月%d日") %></div>
+                <% unless current_user.nil? %>
+                  <% if @user.id == current_user.id %>
+                    <div><%= link_to "削除する", post_comment_path(p.id), data: { confirm: "本当に削除しますか？" }, method: :delete %></div>
+                  <% end %>
+                <% end %>
               </div>
             </div>
           </div>
