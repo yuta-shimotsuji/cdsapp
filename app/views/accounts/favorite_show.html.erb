@@ -31,7 +31,7 @@
           <div class="post">
             <div class="post_contents">
               <div class="post_contents_left">
-                <div><%= link_to p.user.name, account_path(p.user.id) %></div>
+                <div><%= link_to p.post.user.name, account_path(p.user.id) %></div>
                 <div><%= link_to p.post.title, post_path(p.post.id), data: { turbo: false } %></div>
                 <div><%= p.post.body %></div>
                 <div><%= p.post.address %></div>
@@ -48,8 +48,8 @@
               <div class="post_contents_right">
                 <div><%= p.post.created_at.strftime("%Y年%m月%d日") %></div>
                 <% unless current_user.nil? %>
-                  <% if @user.id == current_user.id %>
-                    <div><%= link_to "削除する", post_path(p.id), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
+                  <% if p.post.user.id == current_user.id %>
+                    <div><%= link_to "削除する", post_path(p.post.id), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete %></div>
                   <% end %>
                 <% end %>
               </div>

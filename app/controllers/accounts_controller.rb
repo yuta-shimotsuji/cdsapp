@@ -11,7 +11,6 @@ class AccountsController < ApplicationController
   end
 
   def comment
-    @posts = Favorite.where(user_id: params[:id]).includes(:post).includes(:user).page(params[:page]).per(10)
     @comments = Comment.where(user_id: params[:id]).includes(:post).includes(:user).page(params[:page]).per(10)
   end
 
