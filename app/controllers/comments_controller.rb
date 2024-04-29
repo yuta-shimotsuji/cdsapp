@@ -20,11 +20,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @post_comments = @post.comments
-    Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    @user = current_user
+    @comment = Comment.find(params[:id])
+    @comment.destroy
     flash[:notice] = 'コメントを削除しました'
-    redirect_to post_path(@post)
+    redirect_to comment_account_path(@user)
   end
 
   private
