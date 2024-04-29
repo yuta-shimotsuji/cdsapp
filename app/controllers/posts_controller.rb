@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create, :new]
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def new
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     if @latLng_test.present?
       @latLng = Geocoder.search(@post.address).first.coordinates
     else
-      redirect_to root_path, notice: '住所が不正のため表示できませんでした'
+      redirect_to new_post_path, notice: '住所が不正のため表示できませんでした'
     end
   end
 
@@ -27,8 +27,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post), notice: '投稿しました'
     else
       @posts = Post.all.includes(:user).page(params[:page]).per(10)
-      flash[:notice] = '投稿に失敗しました'
-      render action: :new, status: :unprocessable_entity
+      redirect_to new_post_path, notice: '投稿に失敗しました', flash: { error: @post.errors.full_messages }
     end
   end
 

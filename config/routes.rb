@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   resources :accounts, only: [:show] do
     member do
       get 'favorite_show'
+      get 'comment'
     end
   end
   get '/mypage' => 'accounts#mypage'
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
-  root to: "posts#new"
+  root to: "homes#top"
+  get '/homes/top', to: 'homes#top'
   get '/homes/privacy_policy', to: 'homes#privacy_policy'
   get '/homes/terms_of_service', to: 'homes#terms_of_service'
   get '/homes/how_to_use_the_app', to: 'homes#how_to_use_the_app'

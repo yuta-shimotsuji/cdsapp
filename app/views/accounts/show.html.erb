@@ -2,7 +2,8 @@
 
   <aside class="sidebar">
     <div class="widget widget--sticky--first"><p class="widget_1">投稿一覧<p></div>
-    <div class="widget widget--sticky--second"><%= link_to "いいね一覧" , favorite_show_account_path(@user.id) , class:"widget_1" %></div>
+    <div class="widget widget--sticky--second"><%= link_to "いいね一覧" , favorite_show_account_path(@user.id) , class:"widget_1" %><br></div>
+    <div class="widget widget--sticky--third"><%= link_to "コメント一覧" , comment_account_path(@user.id) , class:"widget_1" %></div>
   </aside>
 
   <main class="main">

@@ -7,3 +7,6 @@ ja:
         title: エリア
         body: メモ
         address: 住所
+        count: 人数
+        price: 費用感
+        play: できること
