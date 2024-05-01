@@ -89,9 +89,13 @@
         <% @posts.each do |p| %>
           <div class="post">
             <% if p.user.image.attached? %>
-              <%= image_tag p.user.image, class:"user_image_post_icon" %>
+              <%= link_to account_path(p.user.id) do %>
+                <%= image_tag p.user.image, class:"user_image_post_icon" %>
+              <% end %>
             <% else %>
-              <%= image_tag 'icon.png', class:"user_image_post_icon" %>
+              <%= link_to account_path(p.user.id) do %>
+                <%= image_tag 'icon.png', class:"user_image_post_icon" %>
+              <% end %>
             <% end %>
             <div class="post_contents">
               <div class="post_contents_left">
