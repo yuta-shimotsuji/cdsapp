@@ -31,7 +31,7 @@
           <div class="post">
             <div class="post_contents">
               <div class="post_contents_left">
-                <div><%= link_to p.post.user.name, account_path(p.user.id) %></div>
+                <div><%= link_to p.post.user.name, account_path(p.post.user.id) %></div>
                 <div><%= link_to p.post.title, post_path(p.post.id), data: { turbo: false } %></div>
                 <div><%= p.post.body %></div>
                 <div><%= p.post.address %></div>
